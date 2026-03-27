@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GabaritaEscrevente 🚀📚 — CPC para TJSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════
+   GABARITAESCREVENTE — CPC/TJSP
+   Azul Institucional + Dourado TJSP
+═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1E3A;
+  --navy2:#122544;
+  --navy3:#1A3057;
+  --navy4:#243A68;
+  --gold:#C9A84C;
+  --gold2:#E2C06A;
+  --golddim:rgba(201,168,76,.13);
+  --white:#FFFFFF;
+  --cream:#F7F3EA;
+  --text:#D8E0EC;
+  --muted:#7A95B8;
+  --green:#27AE60;
+  --red:#E74C3C;
+  --radius:12px;
+  --radiuslg:20px;
+  --shadow:0 8px 40px rgba(0,0,0,.5);
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+  --serif:'Merriweather',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--navy);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 0%,rgba(201,168,76,.06) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 85% 100%,rgba(201,168,76,.04) 0%,transparent 55%);pointer-events:none;z-index:0}
+.app{position:relative;z-index:1;min-height:100vh}
+
+/* ── TELA INICIAL ── */
+#s-home{max-width:900px;margin:0 auto;padding:48px 24px 80px;animation:fadeIn .6s ease}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:48px}
+.brand-icon{width:52px;height:52px;background:var(--golddim);border:1.5px solid var(--gold);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.brand-name{font-family:var(--serif);font-size:1.5rem;font-weight:900;color:var(--gold);letter-spacing:.03em}
+.brand-sub{font-size:.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:2px}
+.home-title{font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--white);line-height:1.15;margin-bottom:14px}
+.home-title em{color:var(--gold);font-style:italic}
+.home-desc{color:var(--muted);font-size:.97rem;line-height:1.7;max-width:600px;margin-bottom:40px}
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:48px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--golddim);border:1px solid rgba(201,168,76,.3);color:var(--gold2);font-size:.75rem;font-weight:600;letter-spacing:.06em;padding:6px 14px;border-radius:50px}
+
+/* Blocos grid */
+.blocks-title{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.blocks-title::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.2)}
+.blocks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-bottom:40px}
+.block-card{background:var(--navy2);border:1px solid rgba(255,255,255,.07);border-radius:var(--radiuslg);padding:24px 22px;cursor:pointer;transition:var(--tr);position:relative;overflow:hidden}
+.block-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity var(--tr)}
+.block-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.3);box-shadow:0 8px 32px rgba(201,168,76,.15)}
+.block-card:hover::before{opacity:1}
+.block-num{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.block-card h3{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:8px}
+.block-card p{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:14px}
+.block-meta{display:flex;align-items:center;justify-content:space-between}
+.block-qty{font-size:.75rem;color:var(--muted)}
+.block-status{font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:50px}
+.block-status.novo{background:rgba(201,168,76,.12);color:var(--gold)}
+.block-status.feito{background:rgba(39,174,96,.12);color:var(--green)}
+
+/* ── TELA DO QUIZ ── */
+#s-quiz{display:none;max-width:820px;margin:0 auto;padding:28px 24px 80px;animation:fadeIn .5s ease}
+.quiz-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.back-btn{display:flex;align-items:center;gap:6px;background:none;border:1px solid rgba(255,255,255,.1);color:var(--muted);font-size:.82rem;padding:8px 16px;border-radius:50px;cursor:pointer;transition:var(--tr);font-family:var(--sans)}
+.back-btn:hover{border-color:var(--gold);color:var(--gold)}
+.score-pill{display:flex;align-items:center;gap:8px;background:var(--navy2);border:1px solid rgba(255,255,255,.08);border-radius:50px;padding:6px 16px;font-size:.82rem}
+.sc{font-weight:700}.sc.c{color:var(--green)}.sc.w{color:var(--red)}
+.prog-wrap{margin-bottom:28px}
+.prog-info{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-bottom:7px}
+.prog-bar{height:4px;background:var(--navy3);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.q-block-label{font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.q-card{background:var(--navy2);border:1px solid rgba(201,168,76,.12);border-radius:var(--radiuslg);padding:32px 28px;margin-bottom:20px;animation:slideUp .4s ease}
+.q-num{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.q-text{font-family:var(--serif);font-size:clamp(1rem,2.2vw,1.2rem);font-weight:700;color:var(--white);line-height:1.6;margin-bottom:24px}
+.q-text .caso{display:block;background:var(--navy3);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 8px 8px 0;font-size:.88rem;font-weight:400;font-family:var(--sans);color:var(--text);margin-bottom:16px;font-style:italic;line-height:1.6}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--navy3);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:13px 16px;cursor:pointer;text-align:left;transition:var(--tr);width:100%;font-family:var(--sans);color:var(--text);font-size:.88rem;line-height:1.55}
+.opt:hover:not(:disabled){border-color:var(--gold);background:rgba(201,168,76,.07);transform:translateX(3px)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--green);background:rgba(39,174,96,.1);color:var(--white)}
+.opt.wrong{border-color:var(--red);background:rgba(231,76,60,.1)}
+.opt-let{flex-shrink:0;width:26px;height:26px;background:var(--navy4);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;color:var(--gold);transition:var(--tr)}
+.opt.correct .opt-let{background:var(--green);color:var(--navy)}
+.opt.wrong .opt-let{background:var(--red);color:#fff}
+
+/* Feedback expandível */
+.feedback{display:none;margin-top:18px;border-radius:var(--radius);overflow:hidden;animation:fadeIn .4s ease}
+.feedback.show{display:block}
+.fb-header{padding:12px 16px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.fb-correct .fb-header{background:rgba(39,174,96,.12);color:var(--green);border-left:3px solid var(--green)}
+.fb-wrong .fb-header{background:rgba(231,76,60,.1);color:var(--red);border-left:3px solid var(--red)}
+.fb-body{background:var(--navy3);padding:0}
+.fb-alt{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;line-height:1.6;color:var(--text)}
+.fb-alt:last-child{border-bottom:none}
+.fb-alt strong{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+.fb-alt strong.ok{color:var(--green)}
+.fb-alt strong.no{color:var(--red)}
+.fb-gab{padding:14px 16px;background:rgba(201,168,76,.07);border-top:1px solid rgba(201,168,76,.15);font-size:.85rem;line-height:1.7;color:var(--text)}
+.fb-gab strong{color:var(--gold);display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+
+.btn-next{display:none;align-items:center;gap:8px;background:var(--golddim);border:1px solid var(--gold);color:var(--gold);font-family:var(--sans);font-weight:600;font-size:.88rem;padding:12px 26px;border-radius:50px;cursor:pointer;transition:var(--tr);margin-top:20px}
+.btn-next:hover{background:var(--gold);color:var(--navy)}
+.btn-next.show{display:flex}
+
+/* ── TELA RESULTADO ── */
+#s-result{display:none;max-width:700px;margin:0 auto;padding:48px 24px 80px;text-align:center;animation:fadeIn .6s ease}
+.res-ring{position:relative;width:160px;height:160px;margin:0 auto 32px}
+.res-ring svg{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--navy3);stroke-width:10}
+.ring-fill{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)}
+.res-pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.res-pct strong{font-family:var(--serif);font-size:2.3rem;font-weight:900;color:var(--white);line-height:1}
+.res-pct span{font-size:.72rem;color:var(--muted)}
+.res-title{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;color:var(--white);margin-bottom:8px}
+.res-title em{color:var(--gold);font-style:italic}
+.res-sub{color:var(--muted);font-size:.92rem;margin-bottom:32px}
+.res-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
+.rs{background:var(--navy2);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:18px 10px}
+.rs strong{display:block;font-family:var(--serif);font-size:1.9rem;font-weight:900;line-height:1;margin-bottom:3px}
+.rs span{font-size:.75rem;color:var(--muted)}
+.rs.g strong{color:var(--green)}.rs.r strong{color:var(--red)}.rs.o strong{color:var(--gold)}
+.gab-section{text-align:left;margin-bottom:32px}
+.gab-title{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.gab-item{background:var(--navy2);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px;font-size:.83rem}
+.gab-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.gab-badge{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:50px}
+.gab-badge.ok{background:rgba(39,174,96,.12);color:var(--green)}
+.gab-badge.no{background:rgba(231,76,60,.1);color:var(--red)}
+.gab-q{color:var(--white);font-weight:500;font-size:.85rem;line-height:1.4}
+.gab-ans{color:var(--muted);font-size:.78rem;margin-top:4px}
+.gab-ans strong{color:var(--gold)}
+.btn-restart{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy);font-family:var(--sans);font-weight:700;font-size:.95rem;padding:14px 36px;border:none;border-radius:50px;cursor:pointer;transition:var(--tr);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+.btn-restart:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,.4)}
+
+/* Animações */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Responsivo */
+@media(max-width:600px){
+  .blocks-grid{grid-template-columns:1fr}
+  .q-card{padding:20px 16px}
+  .res-stats{grid-template-columns:1fr}
+  .quiz-top{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ╔══════════════════════════════╗
+     ║      TELA INICIAL            ║
+     ╚══════════════════════════════╝ -->
+<div id="s-home">
+  <div class="brand">
+    <div class="brand-icon">⚖️</div>
+    <div>
+      <div class="brand-name">GabaritaEscrevente</div>
+      <div class="brand-sub">Concurso TJSP · Escrevente Técnico Judiciário</div>
+    </div>
+  </div>
+
+  <h1 class="home-title">Questões de CPC<br/>no estilo <em>VUNESP</em></h1>
+  <p class="home-desc">Questões elaboradas com base no edital do TJSP para o cargo de Escrevente Técnico Judiciário — Código de Processo Civil, artigos 144–155, 188–275, 294–311, 318–538 e 994–1026. Todas com justificativa de cada alternativa e casos concretos.</p>
+
+  <div class="badge-row">
+    <div class="badge">⚖️ Estilo VUNESP</div>
+    <div class="badge">📋 30 questões</div>
+    <div class="badge">💡 Gabarito comentado</div>
+    <div class="badge">🏛️ TJSP Escrevente</div>
+  </div>
+
+  <div class="blocks-title">Escolha um bloco para começar</div>
+
+  <div class="blocks-grid" id="blocksGrid"></div>
+</div>
+
+<!-- ╔══════════════════════════════╗
+     ║      TELA DO QUIZ            ║
+     ╚══════════════════════════════╝ -->
+<div id="s-quiz">
+  <div class="quiz-top">
+    <button class="back-btn" id="backBtn">← Voltar aos blocos</button>
+    <div class="score-pill">
+      ✅ <span class="sc c" id="scC">0</span>
+      &nbsp;|&nbsp;
+      ❌ <span class="sc w" id="scW">0</span>
+    </div>
+  </div>
+
+  <div class="prog-wrap">
+    <div class="prog-info">
+      <span id="progLabel">Questão 1 de 5</span>
+      <span id="progPct">0%</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+  </div>
+
+  <div class="q-block-label" id="qBlockLabel"></div>
+
+  <div class="q-card" id="qCard">
+    <div class="q-num" id="qNum"></div>
+    <div class="q-text" id="qText"></div>
+    <div class="opts" id="opts"></div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <button class="btn-next" id="btnNext">Próxima questão →</button>
+</div>
+
+<!-- ╔══════════════════════════════╗
+     ║     TELA DE RESULTADO        ║
+     ╚══════════════════════════════╝ -->
+<div id="s-result">
+  <div class="res-ring">
+    <svg viewBox="0 0 160 160" width="160" height="160">
+      <circle class="ring-bg" cx="80" cy="80" r="70"/>
+      <circle class="ring-fill" id="ringFill" cx="80" cy="80" r="70"/>
+    </svg>
+    <div class="res-pct">
+      <strong id="resPct">0%</strong>
+      <span>acertos</span>
+    </div>
+  </div>
+  <h2 class="res-title" id="resTitle">Resultado <em>Final</em></h2>
+  <p class="res-sub" id="resSub"></p>
+  <div class="res-stats">
+    <div class="rs g"><strong id="rC">0</strong><span>Corretas</span></div>
+    <div class="rs r"><strong id="rW">0</strong><span>Incorretas</span></div>
+    <div class="rs o"><strong id="rS">0%</strong><span>Aproveitamento</span></div>
+  </div>
+  <div class="gab-section">
+    <div class="gab-title">📋 Gabarito Completo</div>
+    <div id="gabList"></div>
+  </div>
+  <button class="btn-restart" id="btnRestart">↺ Tentar novamente</button>
+</div>
+
+</div><!-- /app -->
+
+<script>
+/* ═══════════════════════════════════════════════════
+   BANCO DE QUESTÕES — GabaritaEscrevente
+   30 questões | 6 blocos | VUNESP | CPC TJSP
+═══════════════════════════════════════════════════ */
+const BLOCOS = [
+  {
+    id: 0,
+    titulo: "Impedimento e Suspeição",
+    arts: "Arts. 144–155",
+    desc: "Impedimento, suspeição do juiz e auxiliares da justiça",
+    questoes: [
+      {
+        tipo: "teorica",
+        enunciado: "Nos termos do Código de Processo Civil, acerca das hipóteses de <strong>impedimento do juiz</strong>, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "Há impedimento do juiz quando este for amigo íntimo ou inimigo de qualquer das partes ou de seus advogados.",
+          B: "Há impedimento do juiz quando este tiver interesse no julgamento do processo em favor de qualquer das partes.",
+          C: "Há impedimento do juiz quando nele estiver postulando, como advogado, cônjuge ou qualquer parente em linha reta ou colateral até o terceiro grau.",
+          D: "Há impedimento do juiz quando este receber presentes de pessoas que tiverem interesse na causa antes de iniciado o processo.",
+          E: "Há impedimento do juiz quando ele próprio houver aconselhado alguma das partes acerca do objeto da causa."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. Amizade íntima ou inimizade com as partes ou seus advogados é hipótese de SUSPEIÇÃO (art. 145, I, CPC), e não de impedimento. O impedimento pressupõe vínculos objetivos e mais graves.",
+          B: "INCORRETA. O interesse no julgamento em favor de qualquer das partes é causa de SUSPEIÇÃO (art. 145, IV, CPC), não de impedimento. A suspeição envolve presunção relativa de parcialidade.",
+          C: "CORRETA. O art. 144, III, CPC prevê expressamente: há impedimento quando nele estiver postulando, como defensor público, advogado ou membro do Ministério Público, cônjuge, companheiro ou qualquer parente consanguíneo ou afim em linha reta ou colateral até o 3º grau.",
+          D: "INCORRETA. Receber presentes de pessoas interessadas na causa (antes ou depois do início do processo) é causa de SUSPEIÇÃO (art. 145, II, CPC), não de impedimento.",
+          E: "INCORRETA. Aconselhar alguma das partes acerca do objeto da causa é causa de SUSPEIÇÃO (art. 145, II, CPC), não de impedimento. Note-se que as hipóteses de suspeição têm caráter mais subjetivo."
+        },
+        comentario: "O art. 144 do CPC elenca taxativamente as hipóteses de impedimento. A diferença fundamental: o impedimento gera presunção ABSOLUTA de parcialidade (jure et de jure) e pode ser arguido a qualquer tempo; a suspeição gera presunção RELATIVA (juris tantum). A alternativa C corresponde ao inciso III do art. 144."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "O Dr. Augusto, juiz da 3ª Vara Cível, recebeu uma ação de cobrança na qual figura como réu o Sr. Benedito. Ao consultar os autos, o Dr. Augusto verificou que o advogado do autor é seu cunhado (irmão de sua esposa). Diante dessa situação, o Dr. Augusto deve:",
+        opts: {
+          A: "Declarar-se suspeito, pois a relação com o cunhado configura causa de suspeição prevista no art. 145 do CPC.",
+          B: "Declarar-se impedido, pois a relação com o cunhado (afim em segundo grau em linha colateral) configura causa de impedimento prevista no art. 144, III, do CPC.",
+          C: "Permanecer no processo, pois o parentesco por afinidade com advogados não configura causa de impedimento nem de suspeição.",
+          D: "Declarar-se suspeito por motivo de foro íntimo, sem necessidade de declarar suas razões, conforme o art. 145, §1º do CPC.",
+          E: "Aguardar que a parte argua o impedimento, pois o juiz não pode se declarar impedido de ofício."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Não se trata de suspeição, mas de impedimento. O cunhado (irmão da esposa) é parente afim em linha colateral de segundo grau, o que configura a hipótese do art. 144, III. Além disso, o impedimento é mais grave e deve ser reconhecido de ofício.",
+          B: "CORRETA. O cunhado é irmão da esposa, ou seja, parente afim em linha colateral de segundo grau do juiz (art. 1.595 do CC). O art. 144, III, CPC prevê impedimento quando postular, como advogado, qualquer parente afim até o terceiro grau colateral. O juiz deve declarar-se impedido de ofício.",
+          C: "INCORRETA. O parentesco por afinidade com advogado que atua no processo É causa de impedimento, nos termos do art. 144, III, CPC. Ignorar esse vício tornaria nulos os atos decisórios praticados.",
+          D: "INCORRETA. A declaração de foro íntimo é faculdade prevista para a suspeição (art. 145, §1º). No caso, a situação se enquadra como impedimento (mais grave), não sendo necessário invocar foro íntimo.",
+          E: "INCORRETA. O juiz pode e deve declarar-se impedido ou suspeito de ofício (art. 144 e 145 CPC). A parte também pode arguir, mas o reconhecimento espontâneo é dever do magistrado, não faculdade."
+        },
+        comentario: "Cunhado = parente afim em 2º grau em linha colateral (irmão do cônjuge). Por ser parente afim até o 3º grau, enquadra-se perfeitamente no art. 144, III. O juiz DEVE se declarar impedido de ofício, imediatamente, remetendo os autos ao substituto legal."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre o <strong>procedimento para arguição de impedimento ou suspeição</strong> do juiz, nos termos do art. 146 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A parte deve arguir o impedimento ou suspeição em petição avulsa no prazo de 30 dias, a contar do conhecimento do fato.",
+          B: "A petição de arguição de impedimento ou suspeição é dirigida ao Tribunal competente, que a distribuirá ao relator.",
+          C: "A parte deve arguir o impedimento ou a suspeição em petição específica dirigida ao juiz do processo, no prazo de 15 dias, a contar do conhecimento do fato.",
+          D: "Reconhecendo o impedimento, o juiz remete os autos ao Tribunal, que nomeia o substituto e julga eventual indenização.",
+          E: "O incidente de suspeição ou impedimento sempre suspende o processo, independentemente de decisão do relator."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O prazo é de 15 dias (não 30), a contar do conhecimento do fato, conforme o art. 146, caput, do CPC. O prazo de 30 dias não encontra amparo na legislação processual civil.",
+          B: "INCORRETA. A petição de arguição é dirigida ao JUIZ DO PROCESSO (não diretamente ao Tribunal). É o próprio juiz quem, ao receber a petição, decide se reconhece ou não o alegado, e apenas em caso de discordância remete o incidente ao tribunal (art. 146, §1º).",
+          C: "CORRETA. O art. 146, caput, do CPC é expresso: no prazo de 15 dias, a contar do conhecimento do fato, a parte alegará o impedimento ou a suspeição em petição específica dirigida ao juiz do processo, indicando o fundamento e podendo instruí-la com documentos e rol de testemunhas.",
+          D: "INCORRETA. Ao reconhecer o impedimento ou suspeição, o juiz ordena imediatamente a remessa dos autos ao seu SUBSTITUTO LEGAL (não ao Tribunal). O Tribunal só é acionado se o juiz não reconhecer o alegado (art. 146, §1º).",
+          E: "INCORRETA. O efeito suspensivo NÃO é automático. O relator, ao receber o incidente, é quem declara seus efeitos: se sem efeito suspensivo, o processo continua; se com efeito suspensivo, fica suspenso (art. 146, §2º, I e II)."
+        },
+        comentario: "Memorize: prazo = 15 dias; petição dirigida ao juiz do processo; instrução com documentos e rol de testemunhas é facultativa. O efeito suspensivo é definido pelo relator, não automático."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Em uma ação de inventário, o juiz Carlos profere sentença. A parte autora, inconformada com o resultado, apresenta ao Dr. Carlos uma petição arguindo sua suspeição, alegando que ele é amigo íntimo do advogado do réu. A petição foi apresentada após o trânsito em julgado da sentença. O juiz Carlos deve:",
+        opts: {
+          A: "Acolher a petição, pois a suspeição pode ser alegada a qualquer tempo, inclusive após o trânsito em julgado.",
+          B: "Rejeitar a petição de suspeição, pois o processo já se encerrou; mas a parte pode ajuizar ação rescisória alegando o vício.",
+          C: "Reconhecer-se suspeito de ofício e anular os atos praticados, independentemente do trânsito em julgado.",
+          D: "Encaminhar a petição ao Tribunal, que decidirá se anula ou não os atos praticados durante o processo.",
+          E: "Acolher a petição e remeter os autos ao substituto legal para que profira nova sentença."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. A arguição de suspeição deve ser feita no curso do processo, no prazo de 15 dias do conhecimento do fato (art. 146). Após o trânsito em julgado, a via processual adequada não é mais o incidente de suspeição no mesmo processo.",
+          B: "CORRETA. Com o trânsito em julgado, encerra-se o processo e o incidente de suspeição não tem mais cabimento naquele feito. A impugnação a decisão viciada por suspeição do juiz pode ser feita via ação rescisória (art. 966, II, CPC), que tem prazo de 2 anos do trânsito em julgado.",
+          C: "INCORRETA. O juiz não pode anular de ofício sentença com trânsito em julgado. A imutabilidade da coisa julgada protege a decisão. A via adequada é a ação rescisória, e não a autoanulação.",
+          D: "INCORRETA. O Tribunal não pode desconstituir uma sentença transitada em julgado fora das hipóteses legais. Não há incidente processual cabível para esse fim; a parte deveria ajuizar ação rescisória.",
+          E: "INCORRETA. Não é possível acolher incidente de suspeição e remeter autos ao substituto após o trânsito em julgado. O processo está encerrado; a sentença tem força de coisa julgada material."
+        },
+        comentario: "Questão importante: após o trânsito em julgado, os vícios do processo (inclusive suspeição) só podem ser impugnados via AÇÃO RESCISÓRIA (art. 966, II, CPC — sentença proferida por juiz impedido ou suspeito). O prazo rescisório é de 2 anos (art. 975, CPC)."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Nos termos do art. 148 do CPC, as causas de impedimento e suspeição aplicam-se:",
+        caso: null,
+        opts: {
+          A: "Exclusivamente ao juiz e ao promotor de justiça; os demais auxiliares da justiça têm regime próprio de imparcialidade.",
+          B: "Ao membro do Ministério Público, aos auxiliares da justiça e aos demais sujeitos imparciais do processo, aplicando-se, no que couber, o mesmo procedimento previsto para o juiz.",
+          C: "Apenas ao juiz e ao perito judicial, por serem os únicos sujeitos do processo que emitem pronunciamentos com caráter decisório.",
+          D: "Ao membro do Ministério Público e ao juiz, mas não aos auxiliares da justiça, que seguem as normas administrativas do tribunal.",
+          E: "Apenas quando expressamente previsto nos Regimentos Internos dos Tribunais, não havendo norma geral no CPC a respeito."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. A extensão é mais ampla. O art. 148 abrange não apenas o MP e o juiz, mas também os auxiliares da justiça (escrivão, chefe de secretaria, oficial de justiça, perito etc.) e todos os demais sujeitos imparciais do processo.",
+          B: "CORRETA. O art. 148 do CPC é expresso ao dispor que as causas de impedimento e suspeição aplicam-se: I – ao membro do Ministério Público; II – aos auxiliares da justiça; III – aos demais sujeitos imparciais do processo. O §1º determina que a parte interessada argua na primeira oportunidade em que couber falar nos autos.",
+          C: "INCORRETA. A extensão não se limita a quem emite pronunciamentos decisórios. O perito, o escrivão, o oficial de justiça e outros auxiliares também estão sujeitos às mesmas regras, pois exercem funções que podem afetar a imparcialidade do processo.",
+          D: "INCORRETA. Os auxiliares da justiça também se submetem às regras de impedimento e suspeição (art. 148, II). Não há reserva aos Regimentos Internos para tanto; a norma geral está no CPC.",
+          E: "INCORRETA. O CPC possui norma expressa e geral no art. 148. Os Regimentos Internos podem complementar, mas não condicionam a aplicação do dispositivo legal."
+        },
+        comentario: "Para o Escrevente do TJSP, atenção especial: o escrivão e o chefe de secretaria são auxiliares da justiça (art. 149), portanto sujeitos às mesmas causas de impedimento e suspeição do juiz. Isso pode ser cobrado diretamente na prova!"
+      }
+    ]
+  },
+  {
+    id: 1,
+    titulo: "Atos Processuais",
+    arts: "Arts. 188–275",
+    desc: "Forma, tempo, lugar, prazos, citação, intimação e nulidades",
+    questoes: [
+      {
+        tipo: "teorica",
+        enunciado: "Sobre a <strong>forma dos atos processuais</strong>, à luz do art. 188 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "Os atos processuais sempre dependem de forma determinada, sendo nulos aqueles praticados de modo diverso do previsto em lei.",
+          B: "Os atos processuais independem de forma determinada; todavia, mesmo quando a lei exige forma específica, o ato praticado de outro modo será válido se preencher sua finalidade essencial.",
+          C: "Os atos processuais independem de forma determinada, e a lei jamais pode exigir forma especial, sob pena de violação ao princípio da instrumentalidade.",
+          D: "Os atos processuais praticados de forma diversa da legal são sempre nulos, cabendo ao juiz decretar a nulidade de ofício.",
+          E: "A forma dos atos processuais é livremente estipulada pelas partes, desde que haja concordância expressa do juiz."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Essa alternativa inverte a regra geral do CPC. Em regra, os atos processuais NÃO dependem de forma determinada; apenas por exceção, quando a lei expressamente exige, há forma específica. Mesmo assim, o ato pode ser aproveitado se atingir a finalidade.",
+          B: "CORRETA. O art. 188 do CPC consagra o princípio da instrumentalidade das formas: os atos independem de forma determinada, salvo quando a lei expressamente a exigir; mesmo nesses casos, se o ato preencher a finalidade essencial, será válido.",
+          C: "INCORRETA. A lei PODE exigir forma específica para determinados atos — trata-se de exceção à regra geral da liberdade das formas. O que o princípio da instrumentalidade garante é que, mesmo com exigência legal de forma, o ato é válido se cumprir sua finalidade.",
+          D: "INCORRETA. Nem todo ato praticado de forma diversa é nulo. Primeiro, só há nulidade se a lei exigir forma específica. Segundo, mesmo nesse caso, se a finalidade for atingida, o ato é válido (art. 188). Terceiro, há distinção entre nulidades absolutas (decretáveis de ofício) e relativas.",
+          E: "INCORRETA. A forma não é livremente estipulada pelas partes com mera concordância do juiz. As partes podem celebrar negócios jurídicos processuais (art. 190), mas dentro dos limites legais. A forma dos atos é regulada por lei, não por livre arbítrio das partes."
+        },
+        comentario: "Princípio da instrumentalidade das formas: o processo é instrumento do direito material, não um fim em si mesmo. Por isso, o ato praticado sem a forma legal, mas que atinge sua finalidade, é considerado válido — o que evita nulidades desnecessárias."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "João e Maria ajuízam ação indenizatória. Cada um é representado por advogado de escritório diferente. Na contestação, o advogado de João requer a produção de prova pericial. O juiz defere e intima ambas as partes para indicar assistente técnico e formular quesitos. Considerando que João e Maria são litisconsortes com procuradores de escritórios distintos, o prazo para cada um cumprir a intimação é de:",
+        opts: {
+          A: "15 dias úteis para ambos, pois o prazo geral do CPC é de 15 dias para todos os atos processuais.",
+          B: "5 dias úteis para ambos, por ser prazo estabelecido pelo juiz, sem qualquer duplicação.",
+          C: "30 dias úteis para ambos, em contagem comum, por se tratar de prazo dilatório convencional.",
+          D: "Em dobro para cada um, ou seja, 30 dias úteis, pois são litisconsortes com procuradores de escritórios de advocacia distintos.",
+          E: "10 dias úteis para cada um, por se tratar de ato complexo que exige pesquisa técnica específica."
+        },
+        gabarito: "D",
+        justificativas: {
+          A: "INCORRETA. Embora o prazo geral do CPC seja de 15 dias (art. 1.003, §5º), esse prazo deve ser dobrado quando se tratar de litisconsortes com procuradores de escritórios distintos (art. 229), resultando em 30 dias úteis — não 15.",
+          B: "INCORRETA. Não se aplica prazo de 5 dias, que seria cabível para os serventuários de justiça (art. 228). Além disso, a regra de dobro não é afastada pelo simples fato de o prazo ser fixado pelo juiz.",
+          C: "INCORRETA. O prazo de 30 dias poderia estar correto em número, mas a justificativa está errada. Não se trata de prazo dilatório convencional (que depende de acordo entre as partes e o juiz), mas sim do prazo legal em dobro do art. 229.",
+          D: "CORRETA. O art. 229, caput, do CPC estabelece que os litisconsortes que tiverem diferentes procuradores, de escritórios de advocacia distintos, terão prazos contados em dobro para todas as suas manifestações, em qualquer juízo ou tribunal. O prazo padrão seria de 15 dias; em dobro = 30 dias úteis.",
+          E: "INCORRETA. Não há prazo específico de 10 dias para indicação de assistente técnico e formulação de quesitos. A regra geral é de 15 dias, dobrada para 30 no caso de litisconsortes com procuradores de escritórios distintos."
+        },
+        comentario: "Art. 229, CPC: prazo em dobro para litisconsortes com procuradores de escritórios distintos. Atenção: essa regra NÃO se aplica quando a lei fixar prazo próprio (§1º) ou quando o processo for eletrônico e os autos estiverem disponíveis simultaneamente (§2º)."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Quanto à <strong>citação</strong> no CPC, assinale a alternativa que apresenta conceito e efeito corretos, nos termos dos arts. 238 e 240.",
+        caso: null,
+        opts: {
+          A: "Citação é o ato pelo qual se dá ciência ao réu de atos já praticados e, uma vez realizada, induz litispendência apenas se o juiz for competente.",
+          B: "Citação é o ato pelo qual se convoca o réu, o executado ou o interessado a integrar a relação processual; a citação válida, ainda que ordenada por juízo incompetente, induz litispendência, torna litigiosa a coisa e constitui em mora o devedor.",
+          C: "Citação é o ato de comunicação entre as partes já integradas ao processo, produzindo efeitos apenas quando realizada pessoalmente pelo oficial de justiça.",
+          D: "A citação válida apenas induz litispendência quando realizada pelo correio; citações por edital têm efeito suspenso até o comparecimento do réu.",
+          E: "A citação é dispensável nos processos de execução, substituída pela penhora dos bens do devedor como ato citatório presumido."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Citação não é ato de 'ciência de atos já praticados' (isso é intimação). Além disso, o art. 240 é expresso: a citação válida induz litispendência independentemente da competência do juízo que a ordenou.",
+          B: "CORRETA. O art. 238 define: citação é o ato pelo qual se convoca o réu, o executado ou o interessado para integrar a relação processual. O art. 240 estabelece seus efeitos: induz litispendência, torna litigiosa a coisa e constitui em mora o devedor — e tudo isso mesmo que ordenada por juízo incompetente.",
+          C: "INCORRETA. Citação não é ato entre partes já integradas; é exatamente o ato que integra o réu. Além disso, a citação pode ser feita pelo correio, por oficial de justiça, por edital ou eletronicamente, não apenas pessoalmente.",
+          D: "INCORRETA. Não há tal distinção no CPC. A citação válida (por qualquer meio legal) produz os efeitos do art. 240. A citação por edital tem eficácia plena após publicação e decurso dos prazos; não fica suspensa.",
+          E: "INCORRETA. A citação é ato indispensável na execução. O executado deve ser citado para pagar em 3 dias (execução por quantia certa — art. 829) ou cumprir a obrigação, conforme o caso. A penhora não substitui a citação."
+        },
+        comentario: "Diferença fundamental: citação convoca alguém a INTEGRAR o processo; intimação dá CIÊNCIA de atos processuais a quem já está no processo. Os efeitos da citação (art. 240) ocorrem mesmo com juízo incompetente — importante detalhe para a prova."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Em um processo de execução, o escrivão Marcos percebeu que a citação do executado foi feita por carta com aviso de recebimento, mas o aviso retornou sem assinatura do destinatário, assinado por outra pessoa que habita o mesmo endereço. O executado não compareceu ao processo. O juiz proferiu decisão de penhora dos bens. Nessa situação:",
+        opts: {
+          A: "A citação é válida, pois o CPC permite que a carta citatória seja recebida por pessoa da família ou que resida no mesmo local, presumindo-se a entrega ao réu.",
+          B: "A citação é nula, pois a citação por carta exige sempre a assinatura pessoal do destinatário no aviso de recebimento.",
+          C: "A citação é válida, pois o endereço estava correto e o comparecimento ao cartório supriria eventual irregularidade.",
+          D: "A citação por carta é inválida quando o aviso é assinado por terceiro, pois a citação pessoal exige entrega direta. O juiz deveria determinar nova citação, por oficial de justiça.",
+          E: "Não há nulidade porque a penhora realizada equivale a uma citação ficta, sanando qualquer vício anterior."
+        },
+        gabarito: "D",
+        justificativas: {
+          A: "INCORRETA. O CPC, no art. 248, §1º, exige que, na citação por carta, a carta seja entregue ao próprio destinatário, que assina o recibo. A entrega a terceiro, sem previsão de 'hora certa' ou outra modalidade específica, não convalida a citação pessoal.",
+          B: "INCORRETA. A afirmação está parcialmente correta em exigir a assinatura pessoal, mas a consequência não é declarar nulidade automática; a situação exige nova tentativa de citação, agora por oficial de justiça (art. 249 ou citação por hora certa), conforme as circunstâncias.",
+          C: "INCORRETA. O comparecimento espontâneo supre a falta ou nulidade da citação (art. 239, §1º), mas não se pode presumir esse comparecimento. O executado não compareceu; portanto, a irregularidade deve ser corrigida antes de prosseguir.",
+          D: "CORRETA. A citação por correio exige que o aviso de recebimento seja assinado pelo próprio destinatário (art. 248, §1º). Quando o réu não é encontrado ou outra pessoa assina, a citação não se perfaz validamente. O correto é expedir mandado de citação por oficial de justiça, podendo inclusive configurar citação por hora certa (art. 252) ou por edital (art. 256), conforme o caso.",
+          E: "INCORRETA. A penhora não equivale à citação. São atos processuais distintos. Aliás, o art. 240 trata dos efeitos da CITAÇÃO, não da penhora. Praticar ato executivo antes de citação válida ofende o contraditório e pode ensejar nulidade dos atos subsequentes."
+        },
+        comentario: "Art. 248, §1º, CPC: citação por carta = aviso de recebimento assinado PELO PRÓPRIO DESTINATÁRIO. Assinatura de terceiro não convalida. A saída é a citação por oficial de justiça. Essa situação é muito comum na prática cartorária e frequente em provas para Escrevente."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre as <strong>nulidades processuais</strong>, conforme os arts. 276 a 283 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A nulidade pode ser arguida pela própria parte que lhe deu causa, desde que comprove ter sofrido prejuízo com o vício.",
+          B: "Anulado um ato processual, todos os atos subsequentes são automaticamente nulos, ainda que sejam independentes do ato anulado.",
+          C: "Quando a lei prescrever forma sob pena de nulidade, esta não poderá ser decretada se o ato, mesmo praticado de forma diversa, tiver atingido sua finalidade e não tiver causado prejuízo às partes.",
+          D: "O juiz deve decretar a nulidade de todos os atos praticados após o vício, independentemente da existência de prejuízo, em razão do princípio da legalidade processual.",
+          E: "A nulidade do ato processual pode ser arguida a qualquer tempo e em qualquer grau de jurisdição, mesmo que decorrente de irregularidade sanável."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O art. 276 do CPC veda que a parte que deu causa à nulidade a alegue em seu próprio benefício (nemo auditur propriam turpitudinem allegans). A nulidade não pode ser arguida por quem a causou, salvo nas nulidades absolutas decretáveis de ofício.",
+          B: "INCORRETA. O art. 281 do CPC adota o princípio do aproveitamento: anulado o ato, são atingidos os subsequentes que DELE DEPENDAM; os atos independentes são preservados. Não há anulação em cadeia automática de todos os atos posteriores.",
+          C: "CORRETA. O sistema do CPC é orientado pelo princípio da instrumentalidade e pelo pas de nullité sans grief (não há nulidade sem prejuízo). Mesmo quando a lei prescreve forma sob pena de nulidade, se o ato atingiu sua finalidade e não causou prejuízo, a nulidade não deve ser decretada (art. 277 c/c art. 188).",
+          D: "INCORRETA. O CPC não adota o princípio da nulidade automática por mero descumprimento da forma. O prejuízo é elemento essencial para a decretação de nulidades, salvo nas hipóteses de nulidade absoluta insanável. O art. 282, §1º, prevê que o juiz deve perguntar se é possível suprir o defeito.",
+          E: "INCORRETA. As nulidades relativas (sanáveis) precluem se não arguidas na primeira oportunidade. Apenas as nulidades absolutas (de ordem pública) podem ser conhecidas a qualquer tempo e de ofício. As irregularidades sanáveis devem ser arguidas oportunamente."
+        },
+        comentario: "Princípio fundamental: PAS DE NULLITÉ SANS GRIEF — não há nulidade sem prejuízo. O CPC valoriza o aproveitamento dos atos processuais. Memorize os arts. 276 (quem pode alegar), 277 (finalidade atingida), 281 (efeitos da anulação) e 282 (providências do juiz)."
+      }
+    ]
+  },
+  {
+    id: 2,
+    titulo: "Tutelas Provisórias",
+    arts: "Arts. 294–311",
+    desc: "Tutela de urgência (cautelar e antecipada) e tutela de evidência",
+    questoes: [
+      {
+        tipo: "teorica",
+        enunciado: "Sobre a <strong>classificação das tutelas provisórias</strong> no CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A tutela provisória pode fundamentar-se apenas em urgência, sendo a tutela de evidência uma espécie de tutela definitiva antecipada.",
+          B: "A tutela provisória de urgência, cautelar ou antecipada, pode ser concedida apenas em caráter incidental, no curso do processo.",
+          C: "A tutela provisória pode fundamentar-se em urgência ou evidência; a de urgência pode ser cautelar ou antecipada e requerida em caráter antecedente ou incidental.",
+          D: "A tutela provisória de evidência pode ser requerida em caráter antecedente, antes da propositura da ação principal.",
+          E: "A tutela de urgência cautelar e a tutela de urgência antecipada são equivalentes, diferenciando-se apenas pelo momento processual em que são requeridas."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O art. 294 do CPC é expresso: a tutela provisória pode fundamentar-se em URGÊNCIA ou EVIDÊNCIA. A tutela de evidência não é definitiva; permanece provisória até confirmação por decisão final.",
+          B: "INCORRETA. A tutela provisória de urgência pode ser requerida em caráter ANTECEDENTE (antes do processo principal) OU incidental (no curso do processo), conforme o art. 294, parágrafo único.",
+          C: "CORRETA. O art. 294 e seu parágrafo único estabelecem: tutela provisória = urgência ou evidência; tutela de urgência = cautelar (conservativa) ou antecipada (satisfativa); pode ser antecedente ou incidental.",
+          D: "INCORRETA. Somente a tutela de URGÊNCIA pode ser requerida em caráter antecedente (arts. 303 e 305). A tutela de EVIDÊNCIA não tem previsão de pedido antecedente no CPC — ela pressupõe processo em curso ou é requerida junto com a inicial.",
+          E: "INCORRETA. Tutela cautelar e tutela antecipada têm finalidades distintas: a cautelar é conservativa (protege o resultado útil do processo sem adiantar o mérito); a antecipada é satisfativa (adianta total ou parcialmente os efeitos do pedido principal)."
+        },
+        comentario: "Mapa mental: Tutela Provisória → (1) Urgência [cautelar ou antecipada] [antecedente ou incidental] + (2) Evidência [apenas incidental]. Lembre: tutela de evidência NÃO pode ser antecedente — não há ação cautelar ou antecipada autônoma baseada em evidência."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Carla ajuíza ação de reintegração de posse contra Pedro, que invadiu sua propriedade rural. Na petição inicial, Carla demonstra, com fotos e documentos recentes, a probabilidade do direito e o perigo de dano grave de difícil reparação (destruição das plantações). O juiz pode:",
+        opts: {
+          A: "Conceder liminarmente a tutela de urgência antecipada, sem ouvir Pedro, pois estão presentes os requisitos do art. 300 do CPC.",
+          B: "Conceder apenas tutela de evidência, pois Carla juntou documentos suficientes, dispensando a prova de urgência.",
+          C: "Indeferir o pedido de tutela liminar, pois em ações possessórias é obrigatória a audiência de justificação prévia antes de qualquer medida.",
+          D: "Conceder a tutela de urgência apenas se o valor da causa for superior a 40 salários mínimos.",
+          E: "Converter o pedido de tutela de urgência em tutela de evidência, por ser mais adequado ao caso apresentado."
+        },
+        gabarito: "A",
+        justificativas: {
+          A: "CORRETA. O art. 300 do CPC autoriza a concessão da tutela de urgência quando houver elementos que evidenciem a probabilidade do direito e o perigo de dano ou o risco ao resultado útil do processo. Demonstrados os requisitos, o juiz pode conceder liminarmente (inaudita altera pars), sem ouvir a parte contrária.",
+          B: "INCORRETA. A tutela de evidência (art. 311) dispensa a urgência, mas exige uma das hipóteses taxativas do art. 311 (abuso do direito de defesa, prova documental + tese repetitiva, pedido reipersecutório ou prova suficiente sem contestação séria). O caso descrito, com perigo de dano urgente, é de tutela de URGÊNCIA.",
+          C: "INCORRETA. A audiência de justificação prévia em ações possessórias é faculdade do juiz, não obrigação. O art. 562 do CPC permite a concessão liminar de reintegração de posse sem audiência quando a petição inicial for suficientemente instruída com prova da turbação ou esbulho.",
+          D: "INCORRETA. Não há limitação de valor da causa para concessão de tutela de urgência. O requisito é a demonstração da probabilidade do direito e do perigo de dano ou risco ao resultado útil (art. 300), independentemente do valor.",
+          E: "INCORRETA. O juiz não pode converter de ofício um pedido de tutela de urgência em tutela de evidência, pois são institutos com requisitos e fundamentos distintos. Além disso, o caso apresenta urgência concreta, que é exatamente o pressuposto da tutela de urgência."
+        },
+        comentario: "Requisitos da tutela de urgência (art. 300): (1) probabilidade do direito + (2) perigo de dano ou risco ao resultado útil. Ambos presentes = concessão possível, inclusive liminarmente. Atenção: o juiz pode exigir caução para evitar dano à parte contrária (art. 300, §1º)."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre a <strong>tutela de evidência</strong>, prevista no art. 311 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A tutela de evidência exige a demonstração de perigo de dano grave para sua concessão, diferenciando-se da tutela de urgência apenas pela força da prova apresentada.",
+          B: "A tutela de evidência será concedida independentemente da demonstração de perigo de dano ou de risco ao resultado útil do processo, nas hipóteses taxativas do art. 311.",
+          C: "A tutela de evidência pode ser concedida de ofício pelo juiz, mesmo sem requerimento da parte, quando o direito for manifesto.",
+          D: "Nos casos do art. 311, incisos I e IV, o juiz poderá decidir liminarmente, sem ouvir a parte contrária.",
+          E: "A tutela de evidência pode ser requerida em caráter antecedente, antes do ajuizamento da ação principal, quando o direito for absolutamente evidente."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Esta é exatamente a diferença fundamental: a tutela de evidência DISPENSA a prova de urgência (perigo de dano). Basta a probabilidade do direito, demonstrada nas hipóteses taxativas do art. 311. Não é apenas uma questão de 'força da prova'.",
+          B: "CORRETA. O art. 311, caput, do CPC é expresso: 'A tutela da evidência será concedida, independentemente da demonstração de perigo de dano ou de risco ao resultado útil do processo, quando' — seguido das hipóteses taxativas dos incisos I a IV.",
+          C: "INCORRETA. A tutela de evidência, assim como toda tutela provisória, depende de REQUERIMENTO da parte. O CPC não previu a concessão de ofício da tutela provisória (nem de urgência, nem de evidência). É preciso pedido expresso.",
+          D: "INCORRETA. A concessão liminar (inaudita altera pars) na tutela de evidência é possível apenas nos incisos II e III do art. 311, não nos incisos I e IV. Nos incisos I (abuso do direito de defesa) e IV (prova documental suficiente sem contestação séria), não há previsão de liminar sem audiência.",
+          E: "INCORRETA. A tutela de evidência não pode ser requerida em caráter antecedente. Somente a tutela de URGÊNCIA (cautelar ou antecipada) admite pedido antecedente (arts. 303 e 305). A tutela de evidência pressupõe processo em curso ou é requerida na petição inicial."
+        },
+        comentario: "Tutela de evidência: NÃO precisa de urgência. Hipóteses: I-abuso do direito de defesa; II-prova documental+tese repetitiva (liminar possível); III-pedido reipersecutório com contrato de depósito (liminar possível); IV-prova documental suficiente sem contestação séria. Memorize quais admitem liminar (II e III)."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "O Banco Alfa ajuíza ação de cobrança contra o Sr. Ernesto. Na petição inicial, o banco instrui o pedido com contrato de mútuo devidamente assinado, extratos bancários e cálculo do débito. O réu Ernesto é citado mas apresenta contestação genérica, sem impugnar especificamente os documentos juntados e sem apresentar qualquer prova. O banco, então, requer tutela provisória para garantir o recebimento do crédito.",
+        opts: {
+          A: "O banco deve requerer tutela de urgência cautelar, comprovando urgência e risco de dilapidação do patrimônio do devedor.",
+          B: "O banco pode requerer tutela de evidência, com fundamento no art. 311, IV, do CPC, pois a petição inicial está instruída com prova documental suficiente e o réu não opôs prova capaz de gerar dúvida razoável.",
+          C: "O banco não pode obter tutela provisória, pois o CPC veda a antecipação de tutela em ações de cobrança de dívida.",
+          D: "O banco pode requerer tutela de urgência antecipada, desde que demonstre urgência específica, o que não está presente apenas com a contestação genérica.",
+          E: "O banco pode requerer tutela de evidência apenas se a dívida estiver fundamentada em súmula vinculante do STF, conforme art. 311, II."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Para tutela cautelar é necessário demonstrar urgência e risco ao resultado útil do processo. O caso descrito encaixa melhor na tutela de EVIDÊNCIA, pois a prova documental é sólida e o réu não trouxe contraprova séria. Não é necessário comprovar urgência.",
+          B: "CORRETA. O art. 311, IV, prevê tutela de evidência quando 'a petição inicial for instruída com prova documental suficiente dos fatos constitutivos do direito do autor, a que o réu não oponha prova capaz de gerar dúvida razoável'. O banco apresentou documentos suficientes e o réu contestou genericamente — hipótese perfeita do inciso IV.",
+          C: "INCORRETA. O CPC não veda tutela provisória em ações de cobrança. Ao contrário, as ações de cobrança bem documentadas são justamente as mais adequadas para a tutela de evidência do art. 311, IV.",
+          D: "INCORRETA. A tutela de urgência antecipada exige demonstração de urgência. No caso, a situação se enquadra melhor na tutela de EVIDÊNCIA (art. 311, IV), que dispensa a urgência e é mais adequada ao caso concreto. Não é necessário demonstrar urgência adicional.",
+          E: "INCORRETA. O art. 311, II, exige prova documental + TESE FIRMADA EM JULGAMENTO DE CASOS REPETITIVOS OU SÚMULA VINCULANTE. O inciso IV (aplicável ao caso) não exige súmula vinculante; basta prova documental suficiente sem contestação séria do réu."
+        },
+        comentario: "Este é o caso clássico do art. 311, IV: ação bem documentada + contestação genérica sem contraprova. Observe: essa hipótese NÃO admite concessão liminar — o juiz deve aguardar a contestação para verificar se o réu trouxe 'prova capaz de gerar dúvida razoável'."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre a <strong>estabilização da tutela antecipada antecedente</strong>, prevista no art. 304 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "Qualquer tutela provisória de urgência concedida em caráter antecedente se estabiliza automaticamente se o réu não recorrer.",
+          B: "A estabilização aplica-se também à tutela cautelar antecedente, quando o réu não apresenta contestação dentro do prazo legal.",
+          C: "A estabilização da tutela antecipada antecedente ocorre quando o réu não interpõe recurso contra a decisão que a concedeu, tornando-se estável e extinguindo o processo sem resolução do mérito.",
+          D: "A tutela estabilizada torna-se imutável após 2 anos do trânsito em julgado da sentença de extinção do processo.",
+          E: "A tutela estabilizada equivale à coisa julgada material, impedindo qualquer revisão futura da medida concedida."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. A estabilização aplica-se apenas à TUTELA ANTECIPADA (satisfativa) antecedente (art. 304), não a qualquer tutela provisória de urgência. A tutela cautelar antecedente não se estabiliza; ela exige a propositura da ação principal (art. 308).",
+          B: "INCORRETA. A tutela cautelar antecedente NÃO se estabiliza. O art. 304 trata exclusivamente da tutela ANTECIPADA antecedente. Na cautelar, se não for proposta a ação principal no prazo de 30 dias, a medida cautelar perde a eficácia (art. 309, I).",
+          C: "CORRETA. O art. 304 do CPC prevê: se o réu não recorrer da decisão que concedeu a tutela antecipada antecedente, ela se estabiliza e o processo é extinto sem resolução de mérito. A tutela conserva seus efeitos enquanto não for revista, reformada ou invalidada por ação própria.",
+          D: "INCORRETA. A tutela estabilizada pode ser revista a qualquer momento, desde que dentro do prazo de 2 anos contados da ciência da decisão que extinguiu o processo (art. 304, §5º). O prazo é contado da CIÊNCIA DA EXTINÇÃO, não do trânsito em julgado, pois não há sentença de mérito.",
+          E: "INCORRETA. A tutela estabilizada NÃO faz coisa julgada material. O art. 304, §6º, é expresso: 'A decisão que concede a tutela não fará coisa julgada, mas a estabilidade dos respectivos efeitos só será afastada por decisão que a revir, reformar ou invalidar, proferida em ação ajuizada por uma das partes'."
+        },
+        comentario: "Estabilização: tutela ANTECIPADA antecedente + réu não recorre = processo extinto + tutela estabilizada. Mas atenção: não faz coisa julgada. Qualquer parte pode ajuizar ação para rever, reformar ou invalidar no prazo de 2 anos. Após esse prazo, a estabilidade torna-se definitiva."
+      }
+    ]
+  },
+  {
+    id: 3,
+    titulo: "Procedimento Comum",
+    arts: "Arts. 318–538",
+    desc: "Petição inicial, resposta, saneamento, provas, sentença",
+    questoes: [
+      {
+        tipo: "teorica",
+        enunciado: "Acerca dos <strong>requisitos da petição inicial</strong>, previstos no art. 319 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A petição inicial deve indicar apenas o juízo a que é dirigida e o pedido do autor, sendo os demais elementos facultativos.",
+          B: "O valor da causa é requisito dispensável na petição inicial, podendo ser informado até a audiência de conciliação.",
+          C: "A petição inicial deve conter, entre outros requisitos, o juízo a que é dirigida, a qualificação das partes, os fatos e os fundamentos jurídicos do pedido, o pedido com suas especificações, o valor da causa e as provas que o autor pretende produzir.",
+          D: "O autor pode cumular pedidos de qualquer natureza na petição inicial, independentemente de serem compatíveis entre si.",
+          E: "A ausência de qualquer requisito da petição inicial acarreta sua imediata indeferimento, sem possibilidade de emenda."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O art. 319 elenca 7 requisitos obrigatórios: I-juízo; II-qualificação das partes; III-fatos e fundamentos jurídicos; IV-pedido; V-valor da causa; VI-provas que pretende produzir; VII-opção por audiência de conciliação. Não são apenas dois requisitos.",
+          B: "INCORRETA. O valor da causa é requisito obrigatório da petição inicial (art. 319, V). A ausência de valor da causa pode levar ao indeferimento se não sanada após intimação para emenda (art. 321).",
+          C: "CORRETA. O art. 319, incisos I a VII, lista os requisitos da petição inicial: juízo, partes (com qualificação), fatos e fundamentos jurídicos, pedido com especificações, valor da causa, provas pretendidas e opção pela realização de audiência de conciliação.",
+          D: "INCORRETA. A cumulação de pedidos é possível (art. 327), mas exige: competência do juízo para todos, procedimento adequado para todos e compatibilidade entre os pedidos (§1º). Pedidos incompatíveis não podem ser cumulados, salvo de forma sucessiva ou alternativa.",
+          E: "INCORRETA. A falta de requisito da petição inicial não causa indeferimento imediato. O art. 321 do CPC determina que o juiz INTIME o autor para emendar a petição inicial no prazo de 15 dias, indicando o defeito. Só após a omissão do autor é que ocorre o indeferimento."
+        },
+        comentario: "Os 7 requisitos do art. 319 são cobrados literalmente. Memorize o inciso VII: o autor deve indicar se concorda ou não com a designação de audiência de conciliação. A ausência de requisito → intimação para emenda em 15 dias → só então indeferimento, se não corrigido."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Fernanda ajuíza ação de reparação de danos contra a empresa Transportes Brasil Ltda. A petição inicial é distribuída e o juiz, ao analisá-la, percebe que Fernanda não indicou o endereço completo da empresa-ré, inviabilizando a citação. O juiz deve:",
+        opts: {
+          A: "Indeferir a petição inicial de imediato, por ausência de requisito essencial, extinguindo o processo sem resolução do mérito.",
+          B: "Determinar a citação por edital, pois a ausência de endereço equivale a réu em lugar incerto e não sabido.",
+          C: "Intimar Fernanda para que, no prazo de 15 dias, emende a petição inicial, indicando o endereço completo da empresa-ré, sob pena de indeferimento.",
+          D: "Suspender o processo e oficiar à Receita Federal para obtenção do endereço da empresa-ré.",
+          E: "Determinar que o escrivão pesquise o endereço nos sistemas eletrônicos do tribunal, sem necessidade de intimar a autora."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O indeferimento imediato sem oportunidade de emenda viola o art. 321 do CPC, que obriga o juiz a intimar o autor para emendar a petição inicial antes de indeferi-la. O indeferimento direto, sem intimação prévia, configura cerceamento de defesa.",
+          B: "INCORRETA. A citação por edital é cabível quando o réu é desconhecido ou incerto, ou quando não é encontrado em lugar certo (art. 256). A simples ausência do endereço na petição inicial não autoriza citação editalícia sem antes intimar a autora para suprir a omissão.",
+          C: "CORRETA. O art. 321 do CPC determina: 'O juiz, ao verificar que a petição inicial não preenche os requisitos dos arts. 319 e 320, ou que apresenta defeitos e irregularidades capazes de dificultar o julgamento de mérito, determinará que o autor, no prazo de 15 (quinze) dias, a emende ou a complete'. Somente após a inércia do autor é que se procede ao indeferimento.",
+          D: "INCORRETA. A suspensão do processo para obter informações administrativas não tem amparo legal nessa situação. O procedimento correto é a intimação da parte autora para corrigir o defeito, que é obrigação dela, não do juízo.",
+          E: "INCORRETA. Embora o escrivão possa auxiliar na busca de endereços, o procedimento legal é intimar a autora para sanar o vício. A autora é responsável por fornecer os dados necessários para a citação do réu."
+        },
+        comentario: "Art. 321, CPC: ao perceber defeito na petição inicial, o juiz SEMPRE deve intimar o autor para emendar em 15 dias, antes de indeferir. Isso é manifestação do princípio da primazia da resolução do mérito (art. 4º) e do dever de cooperação. Só após a inércia vem o indeferimento."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Com relação à <strong>contestação</strong> e ao princípio da concentração da defesa, nos termos dos arts. 335 e 336 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "O réu pode apresentar sua defesa em momentos processuais distintos, dividindo as matérias de mérito e preliminares em peças separadas.",
+          B: "O réu deve alegar, na contestação, toda a matéria de defesa, expondo as razões de fato e de direito com que impugna o pedido do autor, sob pena de preclusão.",
+          C: "O réu pode apresentar contestação apenas por escrito; a forma oral não é admitida pelo CPC para o processo comum.",
+          D: "O prazo para contestar é de 15 dias úteis em todos os casos, independentemente da natureza da parte ou da modalidade de citação.",
+          E: "O réu citado pessoalmente tem o prazo de 10 dias para contestar; o citado por edital tem prazo de 20 dias."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. O CPC adota o princípio da concentração da defesa: toda a matéria de defesa deve ser reunida em uma única peça — a contestação. Não é admitida a divisão em peças separadas (salvo reconvenção e impugnação ao valor da causa, que são atos distintos).",
+          B: "CORRETA. O art. 336 do CPC consagra o princípio da concentração: 'Incumbe ao réu alegar, na contestação, toda a matéria de defesa, expondo as razões de fato e de direito com que impugna o pedido do autor e especificando as provas que pretende produzir.' A não alegação importa preclusão (art. 342 trata das exceções).",
+          C: "INCORRETA. O CPC admite contestação oral nos Juizados Especiais. No processo comum, embora a forma escrita seja a regra, o CPC não proíbe expressamente a forma oral onde prevista. A questão faz afirmação absoluta que não tem suporte legal irrestrito.",
+          D: "INCORRETA. O prazo para contestar é de 15 dias úteis como regra geral (art. 335), mas há exceções: Fazenda Pública e MP têm prazo em quádruplo (60 dias úteis); litisconsortes com procuradores distintos têm prazo em dobro (30 dias); e há casos especiais em procedimentos específicos.",
+          E: "INCORRETA. O CPC não prevê prazo de 10 dias para citação pessoal nem 20 dias para citação por edital em contestação. O prazo geral de contestação é de 15 dias úteis (art. 335), com a contagem variando conforme a modalidade de citação, mas o prazo final é o mesmo."
+        },
+        comentario: "Princípio da concentração da defesa (art. 336): TUDO na contestação. Exceções ao princípio (art. 342): matéria de ordem pública, fatos novos supervenientes e questões que o réu não podia conhecer anteriormente. O réu deve especificar as provas que quer produzir também na contestação."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Em audiência de instrução, após os depoimentos das testemunhas, o juiz Henrique passa à fase de debates orais. As partes realizam suas manifestações. Encerrados os debates, o juiz declara o processo saneado e em ordem para julgamento. Com base no CPC, após os debates orais, o juiz deve:",
+        opts: {
+          A: "Proferir sentença em audiência, oralmente, com leitura do relatório, fundamentação e dispositivo.",
+          B: "Proferir sentença em audiência ou, se não for possível, no prazo de 30 dias.",
+          C: "Suspender a audiência e aguardar a apresentação de memoriais escritos pelas partes, no prazo de 15 dias cada.",
+          D: "Determinar nova audiência para coleta de provas complementares, antes de sentenciar.",
+          E: "Converter os debates em memoriais escritos se a causa for complexa, com prazo de 15 dias para as partes."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Embora o ideal seja a sentença em audiência, o CPC não obriga que ela seja proferida oralmente na própria audiência. O art. 366 prevê que, não sendo possível proferir a sentença em audiência, o juiz o fará no prazo de 30 dias.",
+          B: "CORRETA. O art. 366 do CPC: 'Encerrado o debate ou oferecidas as razões finais, o juiz proferirá sentença em audiência ou no prazo de 30 (trinta) dias.' Portanto, a sentença pode ser proferida na própria audiência ou, quando não possível, no prazo de 30 dias.",
+          C: "INCORRETA. A conversão dos debates orais em memoriais escritos é uma faculdade do juiz prevista no art. 364, §2º, quando a causa apresentar questões complexas de fato ou de direito. Mas os memoriais são uma ALTERNATIVA aos debates orais, não uma fase posterior obrigatória.",
+          D: "INCORRETA. Após os debates, o processo está encerrado para instrução. Nova coleta de provas pressuporia a reabertura da instrução, o que exige fundamento específico. O juiz não pode simplesmente determinar nova audiência de provas sem justificativa.",
+          E: "INCORRETA. A conversão de debates em memoriais (art. 364, §2º) ocorre ANTES dos debates orais, como substituto. Após os debates orais já realizados, não cabe mais conversão em memoriais. A fase de debates oral já foi cumprida."
+        },
+        comentario: "Art. 366, CPC: sentença pode ser proferida EM AUDIÊNCIA ou no prazo de 30 dias. A conversão de debates em memoriais (art. 364, §2º) é possível quando a causa for complexa, mas deve ser determinada ANTES dos debates, servindo como substituto, com prazo de 15 dias para cada parte."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre os <strong>elementos e efeitos da sentença</strong>, nos termos dos arts. 489 e 502 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A sentença é composta por relatório, motivação e dispositivo; a ausência de relatório, por si só, não causa nulidade da sentença.",
+          B: "Denomina-se coisa julgada material a qualidade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso.",
+          C: "A sentença que resolve questão incidente (prejudicial) nunca produz coisa julgada, mesmo que as partes a requeiram.",
+          D: "A sentença terminativa é aquela que resolve o mérito da causa, extinguindo o processo com análise do pedido.",
+          E: "O relatório pode ser dispensado nas sentenças proferidas em processos de procedimento sumário, por previsão expressa do CPC."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. O relatório é elemento obrigatório da sentença (art. 489, I). A ausência de qualquer dos elementos essenciais (relatório, fundamentação ou dispositivo) pode ensejar nulidade da sentença. A CF/88 (art. 93, IX) também exige a fundamentação sob pena de nulidade.",
+          B: "CORRETA. O art. 502 do CPC define coisa julgada material: 'Denomina-se coisa julgada material a autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso.' É a imutabilidade da decisão de mérito transitada em julgado.",
+          C: "INCORRETA. O art. 503, §1º, do CPC prevê que a questão prejudicial incidental também pode fazer coisa julgada se: expressamente decidida, a parte requerer, e o juízo tiver competência para tanto. Portanto, questões incidentais CAN produce coisa julgada.",
+          D: "INCORRETA. A sentença 'terminativa' é aquela que EXTINGUE O PROCESSO SEM RESOLUÇÃO DE MÉRITO (art. 485). A sentença que resolve o mérito é chamada 'definitiva' (art. 487). Houve inversão dos conceitos na alternativa.",
+          E: "INCORRETA. O CPC/2015 não prevê 'procedimento sumário' (este existia no CPC/1973). No procedimento comum do CPC atual, o relatório é exigido em todas as sentenças; apenas nos Juizados Especiais (Lei 9.099/95) o relatório é dispensado."
+        },
+        comentario: "Coisa julgada FORMAL = imutabilidade dentro do processo (esgotamento de recursos). Coisa julgada MATERIAL (art. 502) = imutabilidade além do processo (lei entre as partes). Atenção: sentença TERMINATIVA (sem mérito, art. 485) × sentença DEFINITIVA (com mérito, art. 487)."
+      }
+    ]
+  },
+  {
+    id: 4,
+    titulo: "Teoria Geral dos Recursos",
+    arts: "Arts. 994–1.008",
+    desc: "Espécies, pressupostos, efeitos e disposições gerais dos recursos",
+    questoes: [
+      {
+        tipo: "teorica",
+        enunciado: "Nos termos do art. 994 do CPC, sobre as <strong>espécies de recursos</strong> admitidas, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "São recursos no CPC: apelação, agravo de instrumento, agravo retido, embargos de declaração, recurso ordinário, recurso especial, recurso extraordinário e embargos infringentes.",
+          B: "São recursos no CPC: apelação, agravo de instrumento, agravo interno, embargos de declaração, recurso ordinário, recurso especial, recurso extraordinário, agravo em recurso especial ou extraordinário e embargos de divergência.",
+          C: "O rol de recursos do art. 994 é exemplificativo, admitindo-se outros meios de impugnação previstos nos Regimentos Internos dos Tribunais.",
+          D: "O agravo retido foi mantido no CPC/2015, cabendo contra decisões interlocutórias não previstas no art. 1.015.",
+          E: "Os embargos infringentes foram mantidos no CPC/2015, cabendo quando houver voto vencido em julgamento de apelação."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. O agravo retido e os embargos infringentes foram EXTINTOS pelo CPC/2015. O agravo retido foi substituído pelo sistema de impugnação diferida das interlocutórias (art. 1.009, §1º); os embargos infringentes foram transformados na 'técnica de julgamento' do art. 942.",
+          B: "CORRETA. O art. 994 do CPC/2015 elenca taxativamente 9 recursos: I-apelação; II-agravo de instrumento; III-agravo interno; IV-embargos de declaração; V-recurso ordinário; VI-recurso especial; VII-recurso extraordinário; VIII-agravo em recurso especial ou extraordinário; IX-embargos de divergência.",
+          C: "INCORRETA. O STJ consolidou entendimento de que o rol do art. 994 é TAXATIVO. Não cabe interpretação extensiva ou criação de novos recursos por Regimentos Internos. A segurança jurídica exige previsão legal expressa para os recursos.",
+          D: "INCORRETA. O agravo retido foi ABOLIDO pelo CPC/2015. As decisões interlocutórias não passíveis de agravo de instrumento (art. 1.015) não precluem; podem ser impugnadas em preliminar de apelação ou nas contrarrazões (art. 1.009, §1º).",
+          E: "INCORRETA. Os embargos infringentes foram EXTINTOS. O CPC/2015 criou, no lugar, a 'técnica de julgamento estendido' do art. 942: quando o resultado da apelação for não unânime, o julgamento prossegue com a convocação de outros julgadores."
+        },
+        comentario: "Novidades do CPC/2015 no sistema recursal: extinção do agravo retido e dos embargos infringentes. O rol do art. 994 é TAXATIVO. Memorize os 9 recursos: apelação, agravo de instrumento, agravo interno, embargos de declaração, recurso ordinário, REsp, RE, agravo em REsp/RE e embargos de divergência."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Em uma ação de obrigação de fazer, o juiz Rodrigo profere decisão interlocutória indeferindo o pedido de produção de prova pericial formulado pelo réu. Indignado, o réu consulta seu advogado sobre qual recurso interpor. Com base no CPC, o advogado deverá orientar o réu a:",
+        opts: {
+          A: "Interpor agravo retido, consignando o protesto nos autos para impugnar a decisão oportunamente.",
+          B: "Interpor agravo de instrumento, pois toda decisão interlocutória é impugnável por essa via.",
+          C: "Aguardar a sentença e impugnar a decisão em preliminar de apelação, por não estar a hipótese prevista no rol do art. 1.015 do CPC.",
+          D: "Interpor embargos de declaração para sanar omissão da decisão, criando pressuposto para o agravo de instrumento.",
+          E: "Impetrar mandado de segurança, pois decisões interlocutórias que causem dano irreparável admitem esse remédio constitucional como substituto recursal."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O agravo retido foi EXTINTO pelo CPC/2015. Não existe mais esse recurso no sistema processual civil. Orientar o cliente a interpor agravo retido configura grave erro profissional.",
+          B: "INCORRETA. O CPC/2015 adotou um rol TAXATIVO de hipóteses de agravo de instrumento (art. 1.015). Nem toda decisão interlocutória é agravável. O indeferimento de prova pericial não está expressamente listado no art. 1.015, portanto não cabe agravo de instrumento.",
+          C: "CORRETA. O art. 1.009, §1º, do CPC resolve exatamente essa situação: 'As questões resolvidas na fase de conhecimento, se a decisão a seu respeito não comportar agravo de instrumento, não são cobertas pela preclusão e devem ser suscitadas em preliminar de apelação, eventualmente interposta contra a decisão final, ou nas contrarrazões.' A impugnação é diferida para a apelação.",
+          D: "INCORRETA. Os embargos de declaração são cabíveis para sanar obscuridade, contradição, omissão ou erro material (art. 1.022). Uma decisão que indefere prova pericial não é omissa — é uma decisão de mérito sobre o pedido de prova. Usar embargos declaratórios para criar pressuposto recursal inexistente é procrastinatório.",
+          E: "INCORRETA. O mandado de segurança como substituto recursal é admitido excepcionalmente, apenas quando não existe recurso adequado ou quando há teratologia manifesta. O CPC prevê a via da impugnação em apelação (art. 1.009, §1º) — há remédio processual adequado, o que afasta o cabimento do MS."
+        },
+        comentario: "Sistema do CPC/2015 para interlocutórias não agraváveis: sem agravo retido, sem preclusão imediata. A parte não precisa fazer nada agora — a questão fica 'em aberto' e pode ser suscitada em PRELIMINAR DE APELAÇÃO (art. 1.009, §1º). Isso é mais prático e evita proliferação de recursos."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Acerca dos <strong>efeitos dos recursos</strong>, nos termos dos arts. 995 a 1.008 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "Os recursos, como regra geral, têm efeito suspensivo automático, impedindo a execução da decisão recorrida.",
+          B: "Os recursos não têm efeito suspensivo, salvo quando a lei expressamente o previr ou quando o relator deferi-lo em caso de risco de dano grave.",
+          C: "O efeito devolutivo dos recursos limita-se às questões expressamente mencionadas nas razões recursais, vedada a reformatio in pejus.",
+          D: "O efeito suspensivo do recurso é irrenunciável, pois visa proteger a ordem pública e o contraditório.",
+          E: "O efeito translativo permite que o tribunal conheça, de ofício, matérias que não foram objeto do recurso, sem qualquer limitação."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. O art. 995 do CPC inverte a regra: os recursos NÃO têm efeito suspensivo automático como regra geral. O efeito suspensivo deve estar previsto em lei ou ser concedido pelo relator. A apelação é exceção importante (art. 1.012), tendo efeito suspensivo como regra.",
+          B: "CORRETA. O art. 995 estabelece: 'Os recursos não impedem a eficácia da decisão, salvo disposição legal ou decisão judicial em sentido diverso.' O parágrafo único prevê que o relator pode atribuir efeito suspensivo quando demonstrado que o imediato cumprimento da decisão possa causar risco de dano grave ou de difícil reparação.",
+          C: "INCORRETA. A proibição da reformatio in pejus (não piorar a situação do recorrente) está correta, mas o enunciado erra ao dizer que o efeito devolutivo limita-se ao expressamente mencionado. O efeito devolutivo abrange o pedido constante do recurso E toda a sua extensão (questões relacionadas), além de matérias de ordem pública conhecíveis de ofício.",
+          D: "INCORRETA. O efeito suspensivo pode ser renunciado. As partes podem, por acordo, afastar o efeito suspensivo de recursos que o têm por previsão legal. Além disso, o próprio recorrente pode pedir a execução provisória do julgado, dispensando o efeito suspensivo.",
+          E: "INCORRETA. O efeito translativo (conhecimento de ofício de matérias de ordem pública) tem limitações: as matérias devem ser conhecíveis de ofício por lei e devem estar relacionadas ao objeto do recurso. Não é ilimitado — o tribunal não pode apreciar qualquer questão estranha ao objeto do recurso."
+        },
+        comentario: "Art. 995: regra = recursos SEM efeito suspensivo. Exceções com efeito suspensivo automático: apelação (art. 1.012), embargos de declaração (art. 1.026). Para os demais, o efeito suspensivo depende de decisão do relator (art. 995, parágrafo único). Fundamental para a prova!"
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "O advogado Gustavo recebeu em 10/03/2025 (segunda-feira) a intimação da sentença que julgou improcedente o pedido de seu cliente. Considerando que Gustavo quer recorrer da sentença por meio de apelação, e que não há prazo diferenciado para seu cliente, em qual data se encerra o prazo para interpor a apelação?",
+        opts: {
+          A: "25/03/2025 (segunda-feira), pois o prazo de 15 dias corridos inicia-se no dia da intimação.",
+          B: "31/03/2025 (segunda-feira), pois o prazo de 15 dias úteis inicia-se no primeiro dia útil após a intimação.",
+          C: "24/03/2025 (domingo), pois o prazo de 15 dias corridos se encerra em 24 de março.",
+          D: "28/03/2025 (sexta-feira), pois o prazo de 15 dias corridos, iniciado em 10/03, termina em 24/03, prorrogado para o próximo dia útil.",
+          E: "17/03/2025 (segunda-feira), pois o prazo para apelação é de 5 dias úteis a partir da intimação."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Os prazos processuais são contados em DIAS ÚTEIS (art. 219, CPC), não em dias corridos. Além disso, o prazo não se inicia no dia da intimação, mas no primeiro dia útil seguinte (art. 231, quando a intimação se der por publicação no Diário da Justiça; no caso de intimação pessoal, no dia da ciência).",
+          B: "CORRETA. O prazo de apelação é de 15 dias (art. 1.003, §5º). Os prazos processuais são contados em dias ÚTEIS (art. 219). A contagem inicia-se no primeiro dia útil após a intimação (10/03 = intimação; 11/03 = início da contagem). Contando 15 dias úteis a partir de 11/03/2025 (terça), o prazo se encerra em 31/03/2025 (segunda-feira).",
+          C: "INCORRETA. Os prazos processuais são contados em dias ÚTEIS (art. 219), não em dias corridos. A aplicação de prazo em dias corridos ao processo civil violaria o CPC. Além disso, se o prazo terminasse em domingo, seria automaticamente prorrogado para a segunda-feira.",
+          D: "INCORRETA. A premissa está errada (dias corridos). Com a contagem em dias úteis corretos, o prazo de 15 dias úteis a partir de 11/03 não termina em 28/03.",
+          E: "INCORRETA. O prazo para apelação é de 15 dias (art. 1.003, §5º), não 5 dias. O prazo de 5 dias é aplicável a outros atos processuais específicos (como despachos do juiz - art. 226, I), não para o recurso de apelação."
+        },
+        comentario: "Art. 219, CPC: prazos processuais em DIAS ÚTEIS. Art. 1.003, §5º: prazo geral para recursos = 15 dias (exceto embargos de declaração = 5 dias). Contar: intimação no dia X → prazo inicia no primeiro dia útil após X → contar 15 dias úteis. Feriados e fins de semana não entram na contagem."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre os <strong>embargos de declaração</strong>, previstos nos arts. 1.022 a 1.026 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "Os embargos de declaração têm prazo de 15 dias úteis e efeito suspensivo automático sobre o prazo dos demais recursos.",
+          B: "Os embargos de declaração cabem apenas contra sentença, não sendo admissíveis contra decisões interlocutórias ou acórdãos.",
+          C: "Os embargos de declaração têm prazo de 5 dias, interrompem o prazo para interposição dos demais recursos e cabem para sanar obscuridade, contradição, omissão ou erro material.",
+          D: "Os embargos de declaração opostos com caráter manifestamente protelatório não geram qualquer consequência ao embargante.",
+          E: "Acolhidos os embargos de declaração, o tribunal necessariamente deve recalcular o prazo dos demais recursos, iniciando nova contagem do zero."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O prazo dos embargos de declaração é de 5 dias (art. 1.023), não 15. Os embargos de declaração INTERROMPEM (não suspendem) o prazo para os demais recursos (art. 1.026). Suspensão e interrupção são institutos distintos: a interrupção zera e reinicia o prazo.",
+          B: "INCORRETA. Os embargos de declaração cabem contra qualquer decisão judicial: sentença, decisão interlocutória, acórdão. O art. 1.022 não restringe a espécie de decisão — aplica-se a qualquer pronunciamento judicial que contenha obscuridade, contradição, omissão ou erro material.",
+          C: "CORRETA. O art. 1.023 estabelece prazo de 5 dias. O art. 1.026 prevê que os embargos de declaração interrompem o prazo para interposição dos demais recursos. O art. 1.022 lista as hipóteses: obscuridade, contradição, omissão e erro material.",
+          D: "INCORRETA. O art. 1.026, §2º, prevê que quando manifestamente protelatórios, os embargos de declaração sujeitam o embargante a multa de até 2% sobre o valor atualizado da causa. Na reincidência, a multa sobe para até 10%, e a interposição de qualquer outro recurso fica condicionada ao depósito prévio do valor da multa (§3º).",
+          E: "INCORRETA. O acolhimento dos embargos de declaração INTERROMPE o prazo (art. 1.026), fazendo-o recomeçar do zero. Contudo, isso não é algo que 'necessariamente deve ser recalculado' pelo tribunal como uma etapa obrigatória — é efeito automático da lei. Além disso, se os embargos forem rejeitados, o prazo retoma de onde parou (restituição do prazo restante)."
+        },
+        comentario: "Embargos de declaração: prazo = 5 dias (único recurso com prazo diferente dos 15 dias). Efeito: INTERROMPEM (não suspendem) o prazo dos demais recursos — o prazo recomeça do ZERO após a decisão dos embargos. Hipóteses: obscuridade, contradição, omissão, erro material. Protelatórios = multa de 2% (reincidência: 10%)."
+      }
+    ]
+  },
+  {
+    id: 5,
+    titulo: "Recursos em Espécie",
+    arts: "Arts. 1.009–1.026",
+    desc: "Apelação, agravo de instrumento, agravo interno e embargos",
+    questoes: [
+      {
+        tipo: "teorica",
+        enunciado: "Quanto à <strong>apelação</strong> e seu efeito suspensivo, nos termos do art. 1.012 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "A apelação nunca tem efeito suspensivo, em consonância com a regra geral do art. 995 do CPC.",
+          B: "A apelação tem efeito suspensivo como regra geral; contudo, nas hipóteses do art. 1.012, §1º, a sentença é executável imediatamente, mesmo antes do trânsito em julgado.",
+          C: "A apelação tem efeito suspensivo apenas quando o recorrente requerer expressamente ao tribunal, no prazo de 5 dias da interposição.",
+          D: "O efeito suspensivo da apelação só pode ser afastado por decisão do STJ ou do STF.",
+          E: "A apelação não tem efeito suspensivo quando interposta contra sentença que julga improcedentes os embargos à execução."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. A apelação é a EXCEÇÃO à regra do art. 995 (recursos sem efeito suspensivo). O art. 1.012 estabelece que a apelação TEM efeito suspensivo como regra, impedindo a execução da sentença enquanto pendente o recurso.",
+          B: "CORRETA. O art. 1.012, caput, prevê que a apelação tem efeito suspensivo. Porém, o §1º excepciona situações em que a sentença produz efeitos imediatamente, como: sentença que confirma tutela provisória, sentença improcedente de embargos à execução, sentença que decreta falência, entre outras.",
+          C: "INCORRETA. O efeito suspensivo da apelação é AUTOMÁTICO por força de lei (art. 1.012, caput). Não depende de requerimento do recorrente. É o efeito suspensivo de OUTROS recursos que precisa de requerimento e decisão do relator.",
+          D: "INCORRETA. O afastamento do efeito suspensivo da apelação pode ser decidido pelo próprio relator no tribunal de segunda instância (art. 1.012, §4º), que pode atribuir efeito suspensivo ou dele afastar em determinadas hipóteses. Não há reserva de competência para STJ ou STF.",
+          E: "INCORRETA. Essa é exatamente uma das hipóteses do art. 1.012, §1º, IV: a apelação NÃO tem efeito suspensivo quando interposta contra sentença que julga improcedentes os embargos à execução. Contudo, a alternativa está afirmando como uma regra geral desconectada do texto legal, sendo parcialmente correta, mas menos precisa que a alternativa B."
+        },
+        comentario: "Apelação = efeito suspensivo como REGRA (diferente dos outros recursos). Exceções sem efeito suspensivo (art. 1.012, §1º): sentença que confirma tutela provisória, rejeição de embargos à execução, falência, insolvência civil, ação de alimentos e outras hipóteses específicas."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "Em uma ação de indenização, o juiz profere decisão interlocutória durante a fase de instrução, determinando a exclusão de um documento essencial juntado pelo réu, sob o argumento de que seria ilícito. O réu deseja impugnar imediatamente essa decisão. Com base no CPC, qual a medida correta?",
+        opts: {
+          A: "Interpor agravo de instrumento, pois a decisão que versa sobre prova ilícita está expressamente prevista no art. 1.015, XI do CPC.",
+          B: "Interpor apelação autônoma, pois toda decisão do juiz de 1º grau pode ser impugnada por apelação.",
+          C: "Aguardar a sentença e impugnar a decisão em preliminar de apelação, já que não há previsão de agravo de instrumento para esse caso.",
+          D: "Interpor embargos de declaração, questionando a decisão por omissão quanto aos critérios utilizados para exclusão da prova.",
+          E: "Interpor agravo interno ao próprio juiz prolator da decisão, que reconsiderará ou manterá a decisão."
+        },
+        gabarito: "A",
+        justificativas: {
+          A: "CORRETA. O art. 1.015, XI, do CPC prevê expressamente o cabimento de agravo de instrumento contra decisão interlocutória que verse sobre 'redistribuição do ônus da prova nos termos do art. 373, §1º'. Mais especificamente, o inciso XI trata de 'prova'. Decisões que excluem documentos e tratam de admissibilidade de provas se enquadram no inciso XI do art. 1.015. O agravo de instrumento é o recurso adequado.",
+          B: "INCORRETA. A apelação não cabe contra decisões interlocutórias no curso do processo. Ela é recurso contra sentença (art. 1.009). A interposição de apelação contra decisão interlocutória não seria conhecida.",
+          C: "INCORRETA. Como a hipótese (decisão sobre prova) está prevista no art. 1.015 como agravável por instrumento, não há que aguardar a sentença. Ao contrário: como é agravável, se o réu não interpuser o agravo no prazo legal, haverá preclusão do tema.",
+          D: "INCORRETA. Os embargos de declaração servem para obscuridade, contradição, omissão ou erro material (art. 1.022). Usar embargos declaratórios para questionar o mérito da decisão (exclusão da prova) seria desvio de finalidade e poderia ser considerado protelatório, sujeitando o embargante à multa.",
+          E: "INCORRETA. Não existe 'agravo interno' dirigido ao próprio juiz de 1º grau. O agravo interno é recurso dirigido ao órgão colegiado do tribunal para impugnar decisão monocrática do relator (art. 1.021). O juiz de 1º grau pode reconsiderar de ofício, mas não por meio de recurso específico a ele dirigido."
+        },
+        comentario: "Art. 1.015, CPC: rol TAXATIVO de decisões interlocutórias agraváveis por instrumento. O inciso XI contempla decisões sobre prova (redistribuição do ônus, exclusão de provas ilícitas, etc.). Se a hipótese está no rol → agravo de instrumento no prazo de 15 dias. Se não está → impugna em preliminar de apelação."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Sobre o <strong>agravo interno</strong>, previsto no art. 1.021 do CPC, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "O agravo interno é cabível contra qualquer decisão de tribunal, inclusive acórdãos proferidos por órgão colegiado.",
+          B: "O agravo interno é cabível contra decisão monocrática do relator, devendo ser interposto no prazo de 15 dias e dirigido ao próprio relator para reconsideração.",
+          C: "O agravo interno é cabível contra decisão monocrática do relator, sendo interposto no prazo de 15 dias e dirigido ao órgão colegiado competente.",
+          D: "O agravo interno tem prazo de 5 dias e é julgado pelo próprio relator em decisão monocrática.",
+          E: "O agravo interno é cabível apenas nos Tribunais Superiores (STJ e STF), não sendo admitido nos tribunais estaduais e federais de segunda instância."
+        },
+        gabarito: "C",
+        justificativas: {
+          A: "INCORRETA. O agravo interno é cabível contra DECISÃO MONOCRÁTICA DO RELATOR, não contra acórdãos. Acórdãos são pronunciamentos do órgão colegiado; contra eles cabem outros recursos (embargos de declaração, recurso especial, recurso extraordinário, embargos de divergência etc.).",
+          B: "INCORRETA. O agravo interno é dirigido ao ÓRGÃO COLEGIADO, não ao próprio relator. O relator que proferiu a decisão monocrática não pode ser o julgador do recurso contra sua própria decisão. O relator pode apenas reconsiderar a decisão antes de submeter ao colegiado.",
+          C: "CORRETA. O art. 1.021, caput: 'Contra decisão proferida pelo relator caberá agravo interno para o respectivo órgão colegiado, observadas, quanto ao processamento, as regras do regimento interno do tribunal.' O prazo é de 15 dias (art. 1.070 c/c art. 1.003, §5º) e é dirigido ao órgão colegiado.",
+          D: "INCORRETA. O prazo do agravo interno é de 15 dias (art. 1.070), não 5 dias. Além disso, ele não é julgado pelo relator — é julgado pelo COLEGIADO (turma, câmara ou seção), que pode confirmar ou reformar a decisão monocrática do relator.",
+          E: "INCORRETA. O agravo interno cabe em QUALQUER tribunal (estaduais, federais, superiores) contra decisão monocrática do relator. O art. 1.021 é norma geral aplicável a todos os tribunais do país."
+        },
+        comentario: "Agravo interno: recurso do recorrente contra decisão MONOCRÁTICA do RELATOR → julgado pelo COLEGIADO. Prazo: 15 dias. Deve impugnar especificamente os fundamentos da decisão agravada. O relator pode reconsiderar; se não reconsiderar, submete ao colegiado. Colegiado que rejeita o agravo por unanimidade pode impor multa (§4º)."
+      },
+      {
+        tipo: "caso",
+        enunciado: "Leia o caso concreto e assinale a alternativa correta:",
+        caso: "O advogado Leonardo interpôs recurso especial junto ao STJ. O relator, monocraticamente, negou seguimento ao recurso por considerá-lo inadmissível. Leonardo deseja impugnar essa decisão monocrática. Com base no CPC, qual é o recurso adequado?",
+        opts: {
+          A: "Recurso extraordinário ao STF, pois a decisão do STJ ofende a Constituição ao negar o direito ao duplo grau de jurisdição.",
+          B: "Agravo interno ao órgão colegiado competente do STJ, no prazo de 15 dias, impugnando especificamente os fundamentos da decisão.",
+          C: "Embargos de declaração ao próprio relator, apontando omissão na análise dos requisitos de admissibilidade.",
+          D: "Agravo regimental ao Presidente do STJ, com base no Regimento Interno do tribunal.",
+          E: "Mandado de segurança originário no STF, pois não há recurso previsto em lei contra decisão monocrática de ministro relator."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Recurso extraordinário ao STF pressupõe violação constitucional em acórdão de tribunal. A decisão monocrática do relator do STJ é impugnável por agravo interno ao próprio STJ. Além disso, a mera negativa de seguimento a recurso especial não configura, em si, violação à CF.",
+          B: "CORRETA. O art. 1.021 do CPC prevê o agravo interno como recurso cabível contra decisão monocrática do relator. No STJ, o relator decide monocraticamente e, se a parte discordar, interpõe agravo interno à turma/seção/corte especial competente, no prazo de 15 dias.",
+          C: "INCORRETA. Embargos de declaração cabem para obscuridade, contradição, omissão ou erro material (art. 1.022). Usar embargos para impugnar o mérito da decisão de inadmissibilidade (quando não há vício de omissão real) é uso indevido do recurso, que pode ser considerado protelatório.",
+          D: "INCORRETA. O agravo regimental existia no sistema anterior. Com o CPC/2015, o recurso adequado é o agravo interno (art. 1.021), que unificou e substituiu o agravo regimental. Os regimentos internos dos tribunais foram sendo adaptados ao CPC/2015.",
+          E: "INCORRETA. Existe recurso previsto em lei (agravo interno, art. 1.021). O mandado de segurança como substituto recursal é admitido apenas de forma excepcional, quando não há recurso legal adequado. Existindo o agravo interno, descabe o MS."
+        },
+        comentario: "Decisão monocrática do relator no STJ → agravo interno à turma competente. No STJ, o relator tem amplos poderes monocráticos (art. 932). Quando decide sozinho: não conhecer, dar ou negar provimento. Parte irresignada → agravo interno (art. 1.021). Isso vale para QUALQUER tribunal."
+      },
+      {
+        tipo: "teorica",
+        enunciado: "Nos termos do art. 1.023 do CPC, sobre os <strong>embargos de declaração</strong> opostos com intuito protelatório, assinale a alternativa correta.",
+        caso: null,
+        opts: {
+          A: "Os embargos de declaração protelatórios são rejeitados liminarmente pelo relator, sem qualquer imposição de multa.",
+          B: "Os embargos de declaração protelatórios sujeitam o embargante à multa de até 2% do valor da causa; na reincidência, a multa sobe para até 10%, condicionando o próximo recurso ao depósito do valor.",
+          C: "Os embargos de declaração protelatórios sujeitam o embargante à multa de 10% do valor da causa já na primeira ocorrência, independentemente de reincidência.",
+          D: "Os embargos de declaração protelatórios podem ser rejeitados sem análise do mérito, mas não admitem imposição de multa, por violação ao princípio do acesso à justiça.",
+          E: "Os embargos de declaração protelatórios não interrompem o prazo dos demais recursos, mas o embargante pode ser condenado às custas processuais."
+        },
+        gabarito: "B",
+        justificativas: {
+          A: "INCORRETA. Os embargos protelatórios não são apenas rejeitados — eles geram consequência patrimonial específica: multa de até 2% do valor da causa (§2º do art. 1.026). A mera rejeição sem multa não está correta.",
+          B: "CORRETA. O art. 1.026, §2º: embargos manifestamente protelatórios → multa de até 2% sobre o valor atualizado da causa. §3º: na reincidência, a multa sobe para até 10%, e a interposição de qualquer outro recurso fica condicionada ao depósito prévio do valor da multa (exceto para beneficiários da justiça gratuita).",
+          C: "INCORRETA. A multa de 10% é aplicável apenas na REINCIDÊNCIA (segunda vez que o mesmo embargante opõe embargos protelatórios no mesmo processo). Na primeira ocorrência, o limite é de 2%.",
+          D: "INCORRETA. O CPC expressamente prevê a multa para embargos protelatórios (art. 1.026, §2º). Isso não viola o acesso à justiça — ao contrário, visa preservar a boa-fé processual e evitar o abuso do direito de recorrer, que prejudica a outra parte e o sistema judicial.",
+          E: "INCORRETA. Os embargos de declaração, mesmo protelatórios, INTERROMPEM o prazo dos demais recursos enquanto pendentes (art. 1.026, caput). A interrupção do prazo é efeito automático da oposição dos embargos, independentemente de seu mérito. A consequência adicional pelos protelatórios é a multa, não a perda do efeito interruptivo."
+        },
+        comentario: "Embargos protelatórios: 1ª vez = multa até 2%; reincidência = multa até 10% + depósito prévio para recorrer. Atenção: mesmo protelatórios, os embargos INTERROMPEM o prazo dos demais recursos. A multa não afeta o efeito interruptivo. Beneficiários da gratuidade não precisam depositar a multa para recorrer."
+      }
+    ]
+  }
+];
+
+/* ══════════════════════════════════════
+   ESTADO GLOBAL
+══════════════════════════════════════ */
+const state = {
+  blocoIdx: null,
+  qIdx: 0,
+  correct: 0,
+  wrong: 0,
+  answers: [],
+  scores: {}   // blocoId → { correct, total }
+};
+
+/* ══════════════════════════════════════
+   UTILITÁRIOS
+══════════════════════════════════════ */
+const $ = id => document.getElementById(id);
+const show = id => $(id).style.display = 'block';
+const hide = id => $(id).style.display = 'none';
+
+function showScreen(name) {
+  ['s-home','s-quiz','s-result'].forEach(s => {
+    document.getElementById(s).style.display = 'none';
+  });
+  const map = { home:'block', quiz:'block', result:'block' };
+  document.getElementById('s-'+name).style.display = map[name];
+  window.scrollTo(0, 0);
+}
+
+/* ══════════════════════════════════════
+   RENDER BLOCOS
+══════════════════════════════════════ */
+function renderBlocos() {
+  const grid = $('blocksGrid');
+  grid.innerHTML = '';
+  BLOCOS.forEach((b, i) => {
+    const sc = state.scores[b.id];
+    const feito = sc ? true : false;
+    const pct = sc ? Math.round(sc.correct/sc.total*100) : null;
+
+    const card = document.createElement('div');
+    card.className = 'block-card';
+    card.innerHTML = `
+      <div class="block-num">Bloco ${i+1} · ${b.arts}</div>
+      <h3>${b.titulo}</h3>
+      <p>${b.desc}</p>
+      <div class="block-meta">
+        <span class="block-qty">📝 ${b.questoes.length} questões</span>
+        <span class="block-status ${feito?'feito':'novo'}">${feito ? `${pct}% ✓` : 'Novo'}</span>
+      </div>`;
+    card.addEventListener('click', () => startBloco(i));
+    grid.appendChild(card);
+  });
+}
+
+/* ══════════════════════════════════════
+   INICIAR BLOCO
+══════════════════════════════════════ */
+function startBloco(idx) {
+  state.blocoIdx = idx;
+  state.qIdx = 0;
+  state.correct = 0;
+  state.wrong = 0;
+  state.answers = [];
+  showScreen('quiz');
+  renderQ();
+}
+
+/* ══════════════════════════════════════
+   RENDER QUESTÃO
+══════════════════════════════════════ */
+function renderQ() {
+  const bloco = BLOCOS[state.blocoIdx];
+  const q = bloco.questoes[state.qIdx];
+  const total = bloco.questoes.length;
+  const idx = state.qIdx + 1;
+
+  // Header
+  $('scC').textContent = state.correct;
+  $('scW').textContent = state.wrong;
+  $('progLabel').textContent = `Questão ${idx} de ${total}`;
+  const pct = Math.round((state.qIdx / total) * 100);
+  $('progFill').style.width = pct + '%';
+  $('progPct').textContent = pct + '%';
+  $('qBlockLabel').textContent = `${bloco.titulo} · ${bloco.arts}`;
+
+  // Questão
+  $('qNum').textContent = `Questão ${String(idx).padStart(2,'0')} · ${q.tipo === 'caso' ? '📋 Caso Concreto' : '📖 Teórica'}`;
+
+  let textHtml = q.enunciado;
+  if (q.caso) {
+    textHtml += `<span class="caso">${q.caso}</span>`;
+  }
+  $('qText').innerHTML = textHtml;
+
+  // Alternativas
+  const opts = $('opts');
+  opts.innerHTML = '';
+  ['A','B','C','D','E'].forEach(letter => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<span class="opt-let">${letter}</span><span>${q.opts[letter]}</span>`;
+    btn.addEventListener('click', () => answer(letter, btn, q));
+    opts.appendChild(btn);
+  });
+
+  // Limpa feedback e botão
+  const fb = $('feedback');
+  fb.className = 'feedback';
+  fb.innerHTML = '';
+  const btnNext = $('btnNext');
+  btnNext.className = 'btn-next';
+  btnNext.textContent = '';
+
+  // Anima card
+  const card = $('qCard');
+  card.style.animation = 'none';
+  requestAnimationFrame(() => { card.style.animation = 'slideUp .4s ease'; });
+}
+
+/* ══════════════════════════════════════
+   RESPONDER
+══════════════════════════════════════ */
+function answer(chosen, clickedBtn, q) {
+  const isRight = chosen === q.gabarito;
+
+  // Desabilita tudo
+  document.querySelectorAll('.opt').forEach(b => {
+    b.disabled = true;
+    const letter = b.querySelector('.opt-let').textContent;
+    if (letter === q.gabarito) b.classList.add('correct');
+    else if (letter === chosen && !isRight) b.classList.add('wrong');
+  });
+
+  if (isRight) state.correct++; else state.wrong++;
+  $('scC').textContent = state.correct;
+  $('scW').textContent = state.wrong;
+
+  // Monta feedback
+  const fb = $('feedback');
+  fb.className = 'feedback show ' + (isRight ? 'fb-correct' : 'fb-wrong');
+
+  let html = `<div class="fb-header">${isRight ? '✅ Resposta Correta!' : `❌ Resposta Incorreta — Gabarito: ${q.gabarito}`}</div>`;
+  html += `<div class="fb-body">`;
+  ['A','B','C','D','E'].forEach(letter => {
+    const isCorr = letter === q.gabarito;
+    html += `<div class="fb-alt">
+      <strong class="${isCorr?'ok':'no'}">${isCorr?'✓':'✗'} Alternativa ${letter}</strong>
+      ${q.justificativas[letter]}
+    </div>`;
+  });
+  html += `<div class="fb-gab"><strong>📌 Comentário do Professor</strong>${q.comentario}</div>`;
+  html += `</div>`;
+  fb.innerHTML = html;
+
+  // Salva resposta
+  state.answers.push({ chosen, gabarito: q.gabarito, question: q.enunciado, opts: q.opts, right: isRight });
+
+  // Botão próxima
+  const bloco = BLOCOS[state.blocoIdx];
+  const isLast = state.qIdx >= bloco.questoes.length - 1;
+  const btnNext = $('btnNext');
+  btnNext.className = 'btn-next show';
+  btnNext.textContent = isLast ? '🏁 Ver Resultado' : 'Próxima questão →';
+  btnNext.onclick = isLast ? showResult : () => {
+    state.qIdx++;
+    renderQ();
+  };
+}
+
+/* ══════════════════════════════════════
+   RESULTADO
+══════════════════════════════════════ */
+function showResult() {
+  const total = state.answers.length;
+  const pct = Math.round(state.correct / total * 100);
+
+  // Salva score do bloco
+  state.scores[BLOCOS[state.blocoIdx].id] = { correct: state.correct, total };
+
+  showScreen('result');
+
+  // Anel
+  const color = pct >= 80 ? '#27AE60' : pct >= 60 ? '#C9A84C' : '#E74C3C';
+  const ring = $('ringFill');
+  ring.style.stroke = color;
+  const offset = 440 * (1 - pct / 100);
+  setTimeout(() => { ring.style.strokeDashoffset = offset; }, 100);
+
+  $('resPct').textContent = pct + '%';
+
+  const ratings = [
+    [90,'Excelente!','Domínio completo! Você está pronto para gabaritar a prova do TJSP! 🏆'],
+    [70,'Muito Bom!','Ótimo desempenho! Mais uma revisão e a aprovação é certa. 💪'],
+    [50,'Bom Esforço!','Você está no caminho certo. Revise os comentários e tente novamente. 📚'],
+    [0,'Continue Estudando!','Não desanime! Releia os comentários de cada questão — você chegará lá. 📖']
+  ];
+  const [,title,sub] = ratings.find(([min]) => pct >= min);
+  $('resTitle').innerHTML = `${title.replace('!','<em>!</em>')}`;
+  $('resSub').textContent = sub;
+
+  $('rC').textContent = state.correct;
+  $('rW').textContent = state.wrong;
+  $('rS').textContent = pct + '%';
+
+  // Gabarito
+  const list = $('gabList');
+  list.innerHTML = '';
+  state.answers.forEach((a, i) => {
+    const div = document.createElement('div');
+    div.className = 'gab-item';
+    div.innerHTML = `
+      <div class="gab-row">
+        <span class="gab-badge ${a.right?'ok':'no'}">${a.right?'✓ Correta':'✗ Errada'}</span>
+        <span style="font-size:.72rem;color:var(--muted)">Q.${i+1}</span>
+      </div>
+      <div class="gab-q">${a.question.replace(/<[^>]*>/g,'').substring(0,120)}...</div>
+      <div class="gab-ans">
+        ${!a.right ? `Sua resposta: <strong style="color:var(--red)">${a.chosen}</strong> &nbsp;|&nbsp; ` : ''}
+        Gabarito: <strong>${a.gabarito} — ${a.opts[a.gabarito].substring(0,60)}...</strong>
+      </div>`;
+    list.appendChild(div);
+  });
+
+  // Atualiza blocos
+  renderBlocos();
+}
+
+/* ══════════════════════════════════════
+   EVENTOS
+══════════════════════════════════════ */
+$('backBtn').addEventListener('click', () => { showScreen('home'); });
+$('btnRestart').addEventListener('click', () => { startBloco(state.blocoIdx); });
+
+/* ══════════════════════════════════════
+   INIT
+══════════════════════════════════════ */
+renderBlocos();
+showScreen('home');
+</script>
+</body>
+</html>
