@@ -527,7 +527,7 @@ body::before{content:'';position:fixed;inset:0;background:
 
 <!-- ══ HOME / BLOCOS ══ -->
 <div id="s-home" style="display:none">
-<div id="debugPanel" style="background:#1a1a2e;color:#00ff88;font-family:monospace;font-size:11px;padding:10px;margin:10px;border-radius:8px;white-space:pre-wrap;display:none;max-height:200px;overflow-y:auto;border:1px solid #00ff88;"></div>
+
   <div class="brand">
     <div class="brand-icon">⚖️</div>
     <div>
@@ -8510,12 +8510,8 @@ function setLoading(btnId,on){
   else if(b.dataset.orig) b.textContent=b.dataset.orig;
 }
 
-/* ── DEBUG VISÍVEL ───────────────────────────────── */
-function dbg(msg){
-  console.log('[DBG]', msg);
-  const p = document.getElementById('debugPanel');
-  if(p){ p.style.display='block'; p.textContent += new Date().toLocaleTimeString()+' '+msg+'\n'; }
-}
+/* ── DEBUG (desativado em produção) ─────────────── */
+function dbg(msg){ /* silencioso em produção */ }
 
 /* ═══════════════════════════════════════════════════
    NAVEGAÇÃO
@@ -8572,17 +8568,10 @@ function clearMe(){ _currentUser=null; localStorage.removeItem('ge_me'); }
 function _key(uid, type){ return 'ge_'+type+'_'+uid; }
 
 function _saveJSON(key, data){
-  try { 
-    localStorage.setItem(key, JSON.stringify(data));
-    if(key.includes('scores')) dbg('SAVED key='+key+' val='+JSON.stringify(data));
-  } catch(e){ dbg('SAVE ERROR: '+e.message); }
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch(e){}
 }
 function _loadJSON(key){
-  try { 
-    const r=localStorage.getItem(key);
-    if(key.includes('scores')) dbg('LOADED key='+key+' found='+(r?'YES':'NO')+' val='+r);
-    return r?JSON.parse(r):null; 
-  } catch(e){ return null; }
+  try { const r=localStorage.getItem(key); return r?JSON.parse(r):null; } catch(e){ return null; }
 }
 
 // Normaliza chaves de objeto para Number
@@ -8800,14 +8789,7 @@ function renderHome(){
     const btnRev=$('btnReviewBloco');
     if(btnRev) btnRev.style.display='none';
     goTo('home');
-  } catch(e){
-    // Show error visibly on login screen
-    const errDiv = document.createElement('div');
-    errDiv.style.cssText='position:fixed;top:10px;left:10px;right:10px;background:red;color:white;padding:15px;z-index:9999;font-family:monospace;font-size:12px;border-radius:8px;word-break:break-all;';
-    errDiv.textContent = 'ERRO renderHome: ' + e.message + ' | stack: ' + (e.stack||'').substring(0,200);
-    document.body.appendChild(errDiv);
-    setTimeout(()=>errDiv.remove(), 15000);
-  }
+  } catch(e){ goTo('home'); }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -8982,7 +8964,6 @@ function answerQ(chosen, q){
    QUIZ — RESULTADO
 ═══════════════════════════════════════════════════ */
 async function showResult(){
-  dbg('showResult called! reviewMode='+state.reviewMode+' blocoIdx='+state.blocoIdx+' me='+JSON.stringify(getMe()?.id));
   const total=state.answers.length;
   const pct=Math.round(state.correct/total*100);
   const bloco=BLOCOS[state.blocoIdx];
@@ -8995,10 +8976,7 @@ async function showResult(){
       const updatedUser = { ...me, scores: state.scores };
       setMe(updatedUser);
       saveScores(me.id, state.scores);
-      dbg('SAVE SCORE uid='+me.id+' bloco='+bloco.id+' scores='+JSON.stringify(state.scores));
-      // Verify save worked
-      const verify = loadScores(me.id);
-      dbg('VERIFY LOAD after save: '+JSON.stringify(verify));
+
     } else {
       dbg('ERRO: sem usuário ao salvar score!');
     }
@@ -9151,7 +9129,6 @@ $('backBtn').addEventListener('click',()=>{
         const updatedUser = { ...me, scores: state.scores };
         setMe(updatedUser);
         saveScores(me.id, state.scores);
-        dbg('BACK SAVE: bloco='+bloco.id+' correct='+state.correct+'/'+state.answers.length);
       }
     }
   }
