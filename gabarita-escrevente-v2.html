@@ -8255,10 +8255,8 @@ const Q  = sel => document.querySelector(sel);
 ═══════════════════════════════════════════════════ */
 function getWrongMap(){
   const me=getMe();
-  if(!me) return {};
-  const users=getUsers();
-  const u=users.find(x=>x.id===me.id);
-  return (u&&u.wrongMap)||{};
+  if(!me||!me.id) return {};
+  return loadWrongMapLocal(me.id);
 }
 function saveWrongMap(map){
   const me=getMe();
