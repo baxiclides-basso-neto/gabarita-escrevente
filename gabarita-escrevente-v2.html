@@ -8611,6 +8611,101 @@ async function loadUserData(uid){
   return { ...profile, scores, wrongMap };
 }
 
+/* ═══════════════════════════════════════════════════
+   AUTH — CADASTRAR
+═══════════════════════════════════════════════════ */
+async function cadastrar(){
+  hideAlert('cad-alert');
+  const fields=['nome','email','cpf','tel','senha'];
+  fields.forEach(f=>{ setFerr('err-'+f,false); setFinp('cad-'+f,false); });
+
+  const nome  = $('cad-nome').value.trim();
+  const email = $('cad-email').value.trim();
+  const cpf   = $('cad-cpf').value.trim();
+  const tel   = $('cad-tel').value.trim();
+  const senha = $('cad-senha').value;
+
+  let ok=true;
+  if(nome.trim().split(/\s+/).length<2){setFerr('err-nome',true,'Informe nome e sobrenome.');setFinp('cad-nome',true);ok=false;}
+  if(!validEmail(email)){setFerr('err-email',true,'E-mail inválido.');setFinp('cad-email',true);ok=false;}
+  if(!validCPF(cpf)){setFerr('err-cpf',true,'CPF inválido.');setFinp('cad-cpf',true);ok=false;}
+  if(!validTel(tel)){setFerr('err-tel',true,'Telefone inválido.');setFinp('cad-tel',true);ok=false;}
+  if(senha.length<8){setFerr('err-senha',true,'Mínimo 8 caracteres.');setFinp('cad-senha',true);ok=false;}
+  if(!ok) return;
+
+  setLoading('btnCad',true);
+  try {
+    const {createUserWithEmailAndPassword} = window._fb;
+    const cred = await createUserWithEmailAndPassword(window._fbAuth, email, senha);
+    const uid = cred.user.uid;
+    const user = { id: uid, nome, email, cpf: cpf.replace(/\D/g,''), tel: tel.replace(/\D/g,''), plano: 'free', criadoEm: new Date().toISOString(), scores: {}, wrongMap: {} };
+    saveProfile(user);
+    saveScores(uid, {});
+    saveWrongMapLocal(uid, {});
+    setMe(user);
+    setLoading('btnCad',false);
+    showAlert('cad-alert','ok','Conta criada! Bem-vindo(a), '+nome.split(' ')[0]+'!');
+  } catch(e) {
+    setLoading('btnCad',false);
+    const msg = e.code==='auth/email-already-in-use' ? 'E-mail já cadastrado. Faça login.' : e.code==='auth/weak-password' ? 'Senha fraca. Use mínimo 8 caracteres.' : 'Erro: '+(e.message||e.code);
+    showAlert('cad-alert','fail', msg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   AUTH — LOGIN
+═══════════════════════════════════════════════════ */
+async function login(){
+  hideAlert('login-alert');
+  setFerr('err-lemail',false); setFinp('login-email',false);
+  setFerr('err-lsenha',false); setFinp('login-senha',false);
+
+  const email=$('login-email').value.trim();
+  const senha=$('login-senha').value;
+
+  let ok=true;
+  if(!validEmail(email)){setFerr('err-lemail',true,'E-mail inválido.');setFinp('login-email',true);ok=false;}
+  if(!senha){setFerr('err-lsenha',true,'Informe sua senha.');setFinp('login-senha',true);ok=false;}
+  if(!ok) return;
+
+  setLoading('btnLogin',true);
+  try {
+    const {signInWithEmailAndPassword} = window._fb;
+    const cred = await signInWithEmailAndPassword(window._fbAuth, email, senha);
+    const uid = cred.user.uid;
+    if(!loadProfile(uid)){
+      saveProfile({ id: uid, nome: email.split('@')[0], email, plano:'free', criadoEm: new Date().toISOString() });
+    }
+    dbg('Login OK uid='+uid);
+    setLoading('btnLogin',false);
+  } catch(e) {
+    setLoading('btnLogin',false);
+    const msg = (e.code==='auth/user-not-found'||e.code==='auth/wrong-password'||e.code==='auth/invalid-credential') ? 'E-mail ou senha incorretos.' : 'Erro: '+(e.message||e.code);
+    showAlert('login-alert','fail', msg);
+    $('login-senha').value='';
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   LOGOUT
+═══════════════════════════════════════════════════ */
+async function logout(){
+  if(!confirm('Deseja sair da sua conta?')) return;
+  clearMe(); state.scores={}; state.reviewMode=false;
+  updateUserBar(null);
+  const le=$('login-email'); if(le) le.value='';
+  const ls=$('login-senha'); if(ls) ls.value='';
+  goTo('login');
+  try { if(window._fbAuth&&window._fb) await window._fb.signOut(window._fbAuth); } catch(e){}
+}
+
+/* ═══════════════════════════════════════════════════
+   PAYWALL
+═══════════════════════════════════════════════════ */
+function showPaywall(){ $('paywallOverlay').style.display='flex'; }
+function closePaywall(){ $('paywallOverlay').style.display='none'; }
+function goToPay(){ alert('Integre sua plataforma de pagamento aqui!'); }
+
 
 async function initApp(){
   const user=getMe();
